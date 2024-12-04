@@ -1,0 +1,83 @@
+@rendermode InteractiveServer
+@inject IJSRuntime jsx
+
+@code {
+    [Parameter]
+    public List<Multa> ListaMultas { get; set; } = new List<Multa>();
+
+    protected override async Task OnAfterRenderAsync(bool firstRender) {
+        if (firstRender) {
+            await jsx.InvokeVoidAsync("cargarMapa");
+
+            // Filtrar las multas de las últimas 4 semanas
+            var fechaLimite = DateTime.Now.AddDays(-28);
+            var multasRecientes = ListaMultas.Where(m => m.Fecha >= fechaLimite).ToList();
+
+            var paramex = Newtonsoft.Json.JsonConvert.SerializeObject(multasRecientes);
+            await jsx.InvokeVoidAsync("cargarMarcadores", paramex);
+        }
+    }
+}
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+<style>
+    .leaflet-container {
+        height: 700px;
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+</style>
+
+<div id="map" style="width: 100%; height: 700px;"></div>
+
+<script>
+    var map = null;
+
+    function cargarMapa() {
+        map = L.map('map').setView([19.11, -70.53], 8);
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        var circle = L.circle([19.11, -70.53], {
+            color: 'red',
+            fillColor: '#f03',
+            fillOpacity: 0.5,
+            radius: 500
+        }).addTo(map).bindPopup('I am a circle.');
+
+        var polygon = L.polygon([
+            [51.509, -0.08],
+            [51.503, -0.06],
+            [51.51, -0.047]
+        ]).addTo(map).bindPopup('I am a polygon.');
+
+        function onMapClick(e) {
+            var popup = L.popup()
+                .setLatLng(e.latlng)
+                .setContent(`You clicked the map at ${e.latlng.toString()}`)
+                .openOn(map);
+        }
+
+        map.on('click', onMapClick);
+    }
+
+    function cargarMarcadores(MultaJson) {
+        var Multa = JSON.parse(MultaJson);
+
+        Multa.forEach(multa => {
+            L.marker([multa.Latitud, multa.Longitud]).addTo(map).bindPopup(
+                ` <b>Cédula:</b> ${multa.Cedula}
+                <br> <b>Nombre:</b> ${multa.Nombre}
+                <br> <b>Coste: $</b>${multa.Coste}
+                <br> <b>Fecha:</b> ${new Date(multa.Fecha).toLocaleDateString()}
+                <br> <b>Latitud:</b> ${multa.Latitud}
+                <br> <b>Longitud:</b> ${multa.Longitud} `);
+        });
+    }
+</script>

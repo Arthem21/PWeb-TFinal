@@ -1,0 +1,17 @@
+﻿@page "/mapa"
+@rendermode InteractiveServer
+@inject Contexto ctx
+@using Microsoft.EntityFrameworkCore
+@using P.Final.Components.Propios
+
+<AsgMap ListaMultas="@Multa" />
+
+
+@code {
+    private List<Multa> Multa = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        Multa = await ctx.multas.ToListAsync();
+    }
+}
