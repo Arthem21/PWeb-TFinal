@@ -192,3 +192,4 @@ C:\Users\maxim\Web\viernes\P.Final\obj\Debug\net9.0\P.Final.pdb
 C:\Users\maxim\Web\viernes\P.Final\obj\Debug\net9.0\P.Final.genruntimeconfig.cache
 C:\Users\maxim\Web\viernes\P.Final\obj\Debug\net9.0\ref\P.Final.dll
 C:\Users\maxim\Web\viernes\P.Final\bin\Debug\net9.0\Newtonsoft.Json.dll
+C:\Users\maxim\Web\viernes\P.Final\obj\Debug\net9.0\P.Final.sourcelink.json

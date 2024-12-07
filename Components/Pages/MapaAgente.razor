@@ -1,0 +1,28 @@
+﻿@page "/mapaAgente"
+@rendermode InteractiveServer
+@inject Contexto ctx
+@using Microsoft.EntityFrameworkCore
+@using P.Final.Components.Propios
+
+<h1>Mapa con mis multas</h1>
+
+<AsgMap ListaMultas="@Multa" />
+
+
+@code {
+    private List<Multa> Multa = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var fechaLimite = DateTime.Now.AddDays(-28);
+        Multa = await ctx.multas.Where(m => m.Fecha >= fechaLimite).ToListAsync();
+
+        foreach (var multa in Multa)
+        {
+            multa.Latitud = Math.Round(multa.Latitud, 2);
+
+            multa.Longitud = Math.Round(multa.Longitud, 2);
+            
+        }
+    }
+}

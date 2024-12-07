@@ -8,12 +8,7 @@
     protected override async Task OnAfterRenderAsync(bool firstRender) {
         if (firstRender) {
             await jsx.InvokeVoidAsync("cargarMapa");
-
-            // Filtrar las multas de las últimas 4 semanas
-            var fechaLimite = DateTime.Now.AddDays(-28);
-            var multasRecientes = ListaMultas.Where(m => m.Fecha >= fechaLimite).ToList();
-
-            var paramex = Newtonsoft.Json.JsonConvert.SerializeObject(multasRecientes);
+            var paramex = Newtonsoft.Json.JsonConvert.SerializeObject(ListaMultas);
             await jsx.InvokeVoidAsync("cargarMarcadores", paramex);
         }
     }

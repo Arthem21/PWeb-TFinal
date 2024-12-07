@@ -1,0 +1,128 @@
+@page "/ListadoConceptos"
+@rendermode InteractiveServer
+@inject Contexto ctx
+@using Microsoft.EntityFrameworkCore
+
+<PageTitle>Gestionar Conceptos</PageTitle>
+
+<h1>Gestionar Conceptos</h1>
+
+@if(modo == Modo.Lista)
+{
+    <h3>Lista de Conceptos</h3>
+    <div class="text-end mb-3">
+        <button class="btn btn-dark btn-lg" @onclick="() => modo = Modo.Editar">Agregar</button>
+    </div>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Monto</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var concepto in conceptos)
+            {
+                <tr>
+                    <td>@concepto.ID</td>
+                    <td>@concepto.Nombre</td>
+                    <td>@concepto.Monto</td>
+                    <td>
+                        <div class="text-center mb-3">
+                            <div class="row">
+                                <button class="btn btn-dark btn-sm" @onclick="() => Editar(concepto)">Editar</button>
+                            </div>
+                            <div class="row">
+                                <button class="btn btn-danger btn-sm" @onclick="() => Borrar(concepto)">Eliminar</button>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (modo == Modo.Editar)
+{
+    <h3>Editar Concepto</h3>
+    <EditForm Model="@concepto" OnValidSubmit="Guardar">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div class="row mb-3">
+            
+            <div class="col">
+                <label for="Nombre" class="form-label">Nombre</label>
+                <InputText id="Nombre" class="form-control" @bind-Value="@concepto.Nombre" />
+            </div>
+            
+            <div class="col">
+                <label for="Monto" class="form-label">Monto</label>
+                <InputNumber id="Monto" class="form-control" @bind-Value="@concepto.Monto" />
+            </div>
+        </div>
+        <div class="text-center mb-3">
+            <button type="submit" class="btn btn-dark btn-lg">Guardar Concepto</button>
+        </div>
+    </EditForm>
+}
+
+@code {
+    enum Modo
+    {
+        Lista,
+        Editar
+    }
+
+    Modo modo = Modo.Lista;
+    List<Concepto> conceptos = new List<Concepto>();
+    Concepto concepto = new Concepto();
+
+    protected async Task Guardar()
+    {
+        if (concepto.ID > 0)
+        {
+            ctx.Conceptos.Update(concepto);
+        }
+        else
+        {
+            ctx.Conceptos.Add(concepto);
+            conceptos.Add(concepto);
+        }
+
+        await ctx.SaveChangesAsync();
+        StateHasChanged();
+
+        concepto = new Concepto();
+        modo = Modo.Lista;
+    }
+
+    protected async Task Borrar(Concepto x)
+    {
+        ctx.Conceptos.Remove(x);
+        conceptos.Remove(x);
+
+        await ctx.SaveChangesAsync();
+        StateHasChanged();
+
+        concepto = new Concepto();
+        modo = Modo.Lista;
+    }
+
+    public void Editar(Concepto x)
+    {
+        this.concepto = x;
+        modo = Modo.Editar;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool render)
+    {
+        if (render)
+        {
+            conceptos = await ctx.Conceptos.ToListAsync();
+            await ctx.SaveChangesAsync();
+        }
+        StateHasChanged();
+    }
+}

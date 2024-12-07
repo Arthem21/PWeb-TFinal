@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace P.Final.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20241204205855_v2")]
+    [Migration("20241206205752_v2")]
     partial class v2
     {
         /// <inheritdoc />
@@ -33,6 +33,14 @@ namespace P.Final.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Tipo")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.HasKey("ID");
 
                     b.ToTable("Administrativos");
@@ -52,8 +60,16 @@ namespace P.Final.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<double>("comision")
+                    b.Property<double>("Comision")
                         .HasColumnType("REAL");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Tipo")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.HasKey("ID");
 
@@ -74,9 +90,35 @@ namespace P.Final.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Tipo")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.HasKey("ID");
 
                     b.ToTable("Centrales");
+                });
+
+            modelBuilder.Entity("Concepto", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<double>("Monto")
+                        .HasColumnType("REAL");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Conceptos");
                 });
 
             modelBuilder.Entity("Multa", b =>
@@ -92,9 +134,8 @@ namespace P.Final.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Concepto")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("ConceptoID")
+                        .HasColumnType("INTEGER");
 
                     b.Property<double>("Coste")
                         .HasColumnType("REAL");
@@ -124,7 +165,35 @@ namespace P.Final.Migrations
 
                     b.HasKey("ID");
 
+                    b.HasIndex("AgenteID");
+
+                    b.HasIndex("ConceptoID");
+
                     b.ToTable("multas");
+                });
+
+            modelBuilder.Entity("Multa", b =>
+                {
+                    b.HasOne("Agente", "Agente")
+                        .WithMany("MultasPropias")
+                        .HasForeignKey("AgenteID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Concepto", "Concepto")
+                        .WithMany()
+                        .HasForeignKey("ConceptoID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Agente");
+
+                    b.Navigation("Concepto");
+                });
+
+            modelBuilder.Entity("Agente", b =>
+                {
+                    b.Navigation("MultasPropias");
                 });
 #pragma warning restore 612, 618
         }

@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
+      "Id": "C:\\Users\\maxim\\Web\\viernes\\P.Final\\wwwroot\\fotos\\selfi.jpg",
+      "PackagePath": "staticwebassets\\fotos\\selfi.jpg"
+    },
+    {
       "Id": "C:\\Users\\maxim\\Web\\viernes\\P.Final\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },

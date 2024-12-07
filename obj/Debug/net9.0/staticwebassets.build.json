@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "eDLdese81FUdLsjVVzRwQeZvsLBL9j38+6XiEPrB3aM=",
+  "Hash": "3MpEoqrCue/lUNUkK10K7lCpbbJY9eEa3EwnHmEXuAI=",
   "Source": "P.Final",
   "BasePath": "_content/P.Final",
   "Mode": "Default",
@@ -1086,6 +1086,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.png"
+    },
+    {
+      "Identity": "C:\\Users\\maxim\\Web\\viernes\\P.Final\\wwwroot\\fotos\\selfi.jpg",
+      "SourceId": "P.Final",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\maxim\\Web\\viernes\\P.Final\\wwwroot\\",
+      "BasePath": "_content/P.Final",
+      "RelativePath": "fotos/selfi#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "1ub0p6jzgq",
+      "Integrity": "F0OGPRkt1CX1Uh9+C4vo4LkEFsglimMMZw43eVV0I3A=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\fotos\\selfi.jpg"
     },
     {
       "Identity": "C:\\Users\\maxim\\Web\\viernes\\P.Final\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
@@ -2390,6 +2411,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg="
+        }
+      ]
+    },
+    {
+      "Route": "fotos/selfi.1ub0p6jzgq.jpg",
+      "AssetFile": "C:\\Users\\maxim\\Web\\viernes\\P.Final\\wwwroot\\fotos\\selfi.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "24848"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"F0OGPRkt1CX1Uh9+C4vo4LkEFsglimMMZw43eVV0I3A=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 13 Sep 2024 22:59:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "1ub0p6jzgq"
+        },
+        {
+          "Name": "label",
+          "Value": "fotos/selfi.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-F0OGPRkt1CX1Uh9+C4vo4LkEFsglimMMZw43eVV0I3A="
+        }
+      ]
+    },
+    {
+      "Route": "fotos/selfi.jpg",
+      "AssetFile": "C:\\Users\\maxim\\Web\\viernes\\P.Final\\wwwroot\\fotos\\selfi.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "24848"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"F0OGPRkt1CX1Uh9+C4vo4LkEFsglimMMZw43eVV0I3A=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 13 Sep 2024 22:59:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-F0OGPRkt1CX1Uh9+C4vo4LkEFsglimMMZw43eVV0I3A="
         }
       ]
     },

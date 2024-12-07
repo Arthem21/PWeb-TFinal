@@ -1,0 +1,65 @@
+@page "/mapaFecha"
+@rendermode InteractiveServer
+@inject Contexto ctx
+@using Microsoft.EntityFrameworkCore
+@using P.Final.Components.Propios
+
+<PageTitle>Gestionar Multas por Fecha</PageTitle>
+
+<h1>Mapa de multas</h1>
+
+<div class="row mb-3">
+    <div class="col">
+        <label for="Mes" class="form-label">Mes</label>
+        <InputSelect id="Mes" class="form-control" @bind-Value="mesSeleccionado">
+            @for (int mes = 1; mes <= 12; mes++)
+            {
+                <option value="@mes">@mes</option>
+            }
+        </InputSelect>
+    </div>
+    <div class="col">
+        <label for="Año" class="form-label">Año</label>
+        <InputSelect id="Año" class="form-control" @bind-Value="añoSeleccionado">
+            @for (int año = DateTime.Now.Year; año >= 2000; año--)
+            {
+                <option value="@año">@año</option>
+            }
+        </InputSelect>
+    </div>
+    <div class="col">
+        <button class="btn btn-primary mt-4" @onclick="FiltrarMultas">Filtrar</button>
+    </div>
+</div>
+
+<AsgMap ListaMultas="@Multa" />
+
+@code {
+    private List<Multa> Multa = new();
+    private int mesSeleccionado = DateTime.Now.Month;
+    private int añoSeleccionado = DateTime.Now.Year;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await FiltrarMultas();
+    }
+
+    private async Task FiltrarMultas()
+    {
+        var fechaInicio = new DateTime(añoSeleccionado, mesSeleccionado, 1);
+        var fechaFin = fechaInicio.AddMonths(1).AddDays(-1);
+        Multa = await ctx.multas
+            .Where(m => m.Fecha >= fechaInicio && m.Fecha <= fechaFin)
+            .ToListAsync();
+
+        
+        foreach (var multa in Multa)
+        {
+            multa.Latitud = Math.Round(multa.Latitud, 2);
+
+            multa.Longitud = Math.Round(multa.Longitud, 2);
+        }
+
+        
+    }
+}
