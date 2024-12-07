@@ -1,0 +1,63 @@
+.contenedor-pagina[b-e9wgu7d16s] {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    flex-wrap: wrap; 
+    min-height: 100vh; 
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+
+.contenedor-imagen[b-e9wgu7d16s] {
+    position: absolute; 
+    top: 100px; 
+    left: 10px; 
+    z-index: 2; 
+}
+
+.logo-caja[b-e9wgu7d16s] {
+    width: 150px; 
+    height: auto; 
+    border-radius: 5px; 
+   
+}
+
+
+
+.contenedor1[b-e9wgu7d16s], .contenedor2[b-e9wgu7d16s], .contenedor3[b-e9wgu7d16s] {
+    flex: 1 1 300px;
+    max-width: 500px;
+    max-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.targeta-contenedor1[b-e9wgu7d16s], .targeta-contenedor2[b-e9wgu7d16s], .targeta-contenedor3[b-e9wgu7d16s] {
+    background: #009E41;
+    width: 100%;
+    max-width: 500px;
+    max-height: 500px;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
+.card[b-e9wgu7d16s] {
+    height:300px;
+}
+
+ .card .card-body h5[b-e9wgu7d16s] {
+     font-size:30x;
+     font-weight:bold;
+}
+
+.card .card-body p[b-e9wgu7d16s] {
+    font-size: 14x;
+    font-weight: normal;
+}

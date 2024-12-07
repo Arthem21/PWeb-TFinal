@@ -1,1 +1,81 @@
 ﻿@page "/"
+@using static System.Console;
+@rendermode InteractiveServer
+@inject NavigationManager Nav
+
+
+<div class="contenedor-pagina">
+    <div class="contenedor-imagen">
+        <img src="fotos/lg2.jpg" alt="Logo" class="logo-caja">
+    </div>
+
+    <div class="contenedor1">
+        <div class="targeta-contenedor1" @onclick="ModuloAgentes">
+
+            <div class="card" style="width: 100%;">
+                
+                <div class="card-body cadarbodywith">
+                    <h5 class="card-title">Módulo Agente</h5>
+                    
+                    <p class="card-text">Este es el modulo de agentes, registrese o inicie seccion
+                        para acceder.</p>
+                    
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <div class="contenedor2">
+        <div class="targeta-contenedor2" @* @onclick="VisualizarVivencia" *@>
+
+            <div class="card" style="width: 100%;">
+                
+                <div class="card-body">
+                    <h5 class="card-title">Módulo Ofinicina Central</h5>
+                    
+                    <p class="card-text">Este es el modulo de oficina central, 
+                        puede iniciar sesión con su cédula y clave y realizar las acciones.
+                    </p>
+                    
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="contenedor3">
+        <div class="targeta-contenedor3" @* @onclick="VisualizarVivencia" *@>
+
+            <div class="card" style="width: 100%;">
+
+                <div class="card-body">
+                    <h5 class="card-title">Administrativo</h5>
+                    
+                    <p class="card-text">Este es el modulo de administración.
+                        En este módulo se gestionan los usuarios de la oficina central y los conceptos de multas.
+                    </p>
+                    
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+@code {
+
+    private void ModuloAgentes()
+    {
+        
+        Nav.NavigateTo("Agentes/moduloagentes");
+    }
+
+    
+
+
+}

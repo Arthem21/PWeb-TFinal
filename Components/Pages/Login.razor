@@ -1,0 +1,87 @@
+﻿@* @page "/singIn"
+@using Microsoft.EntityFrameworkCore
+@using Tarea9.Web.Components.Data
+@using Tarea9.web.Components.Models
+@inject DataContext Dc
+@inject IJSRuntime Jsx
+@inject NavigationManager Navigation
+
+<PageTitle>Sing in</PageTitle>
+
+
+<div class="background-container">
+    <div class="left"></div>
+    <div class="right">
+        <div class="form-container">
+            <form @onsubmit="Guardarlogin" class="editform">
+
+                <h3>Crear Cuenta</h3>
+
+
+                <div class="form-group mt-3">
+                    <label for="username">Usuario</label>
+                    <input class="form-control form-control-lg input" id="username" @bind="login.Usuario" />
+                </div>
+
+                <div class="form-group mt-3">
+                    <label for="mail">Correo</label>
+                    <input class="form-control form-control-lg input" id="mail" @bind="login.Mail" />
+                </div>
+
+                <div class="form-group mt-3">
+                    <label for="password">Contraseña</label>
+                    <input class="form-control form-control-lg input" id="password" type="password" @bind="login.Contrasena" />
+                </div>
+
+                <div class="form-group mt-3 button-iniciar-container">
+                    <button class="boton-iniciar" type="submit">Crear Cuenta</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+@code {
+
+    [Parameter] public int Id { get; set; }
+
+    ClaseLogin login = new ClaseLogin();
+
+    private async Task Guardarlogin()
+    {
+
+        var existeUsuario = await Dc.ColeccionInicioSecion
+            .AnyAsync(u => u.Usuario == login.Usuario);
+
+        if (existeUsuario)
+        {
+            await Jsx.InvokeVoidAsync("alert", "El usuario ya existe. Por favor, elige otro nombre.");
+        }
+        else
+        {
+            if (login.Id > 0)
+            {
+                Dc.ColeccionInicioSecion.Update(login);
+            }
+            else
+            {
+                Dc.ColeccionInicioSecion.Add(login);
+            }
+
+            await Dc.SaveChangesAsync();
+            await Jsx.InvokeVoidAsync("alert", "Datos Guardados");
+            Navigation.NavigateTo("/");
+        }
+
+
+    }
+
+}
+ *@

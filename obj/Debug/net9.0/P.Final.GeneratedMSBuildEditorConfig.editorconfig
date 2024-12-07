@@ -17,77 +17,97 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = P.Final
 build_property.RootNamespace = P.Final
-build_property.ProjectDir = C:\Users\maxim\Web\viernes\P.Final\
+build_property.ProjectDir = C:\web\Programacion-web-itla\Proyecto final\PWeb-TFinal\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\maxim\Web\viernes\P.Final
+build_property.MSBuildProjectDirectory = C:\web\Programacion-web-itla\Proyecto final\PWeb-TFinal
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/maxim/Web/viernes/P.Final/Components/App.razor]
+[C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/App.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/maxim/Web/viernes/P.Final/Components/Pages/AcercaDe.razor]
+[C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Pages/AcercaDe.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBY2VyY2FEZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/maxim/Web/viernes/P.Final/Components/Pages/Error.razor]
+[C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Pages/Agentes/MapaAgentes.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZ2VudGVzXE1hcGFBZ2VudGVzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Pages/Agentes/RegistrarMulta.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZ2VudGVzXFJlZ2lzdHJhck11bHRhLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Pages/Comision.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb21pc2lvbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/maxim/Web/viernes/P.Final/Components/Pages/Home.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/maxim/Web/viernes/P.Final/Components/Pages/ListadoAgentes.razor]
+[C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Pages/ListadoAgentes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xMaXN0YWRvQWdlbnRlcy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/maxim/Web/viernes/P.Final/Components/Pages/ListadoCentrales.razor]
+[C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Pages/ListadoCentrales.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xMaXN0YWRvQ2VudHJhbGVzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/maxim/Web/viernes/P.Final/Components/Pages/ListadoConceptos.razor]
+[C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Pages/ListadoConceptos.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xMaXN0YWRvQ29uY2VwdG9zLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/maxim/Web/viernes/P.Final/Components/Pages/ListadoMultas.razor]
+[C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Pages/ListadoMultas.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xMaXN0YWRvTXVsdGFzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/maxim/Web/viernes/P.Final/Components/Pages/MapaAgente.razor]
+[C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Pages/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xMb2dpbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Pages/MapaAgente.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNYXBhQWdlbnRlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/maxim/Web/viernes/P.Final/Components/Pages/MapaFecha.razor]
+[C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Pages/MapaFecha.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNYXBhRmVjaGEucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/maxim/Web/viernes/P.Final/Components/Pages/Weather.razor]
+[C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Pages/Weather.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xXZWF0aGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/maxim/Web/viernes/P.Final/Components/Propios/AsgMap.razor]
+[C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Propios/AsgMap.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9waW9zXEFzZ01hcC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/maxim/Web/viernes/P.Final/Components/Routes.razor]
+[C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Routes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/maxim/Web/viernes/P.Final/Components/_Imports.razor]
+[C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/maxim/Web/viernes/P.Final/Components/Layout/MainLayout.razor]
+[C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-sisne5liw8
 
-[C:/Users/maxim/Web/viernes/P.Final/Components/Layout/NavMenu.razor]
+[C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-qty44f1n49
+
+[C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Pages/Agentes/ModuloAgentes.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZ2VudGVzXE1vZHVsb0FnZW50ZXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-sggibnlhdj
+
+[C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-e9wgu7d16s

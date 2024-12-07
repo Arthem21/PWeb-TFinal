@@ -1,0 +1,90 @@
+﻿@page "/Agentes/moduloagentes"
+@using static System.Console;
+@rendermode InteractiveServer
+@inject NavigationManager nav
+
+
+
+<div class="contenedor-pagina">
+    <div class="contenedor-imagen">
+        <img src="fotos/lg2.jpg" alt="Logo" class="logo-caja">
+    </div>
+    <h3>Modulo Agentes</h3>
+    <div class="contenedor1">
+        <div class="targeta-contenedor1" @onclick="RegistrarMulta">
+            <div class="card" style="width: 100%;">
+                <div class="card-body cadarbodywith">
+                    <h5 class="card-title">Registrar Multa</h5>
+                    <i class="fa-solid fa-building-shield"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contenedor2">
+        <div class="targeta-contenedor2" @onclick="ListadoMultas">
+            <div class="card" style="width: 100%;">
+                <div class="card-body cadarbodywith">
+                    <h5 class="card-title">Multas</h5>
+                    <i class="fa-solid fa-building-shield"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contenedor3">
+        <div class="targeta-contenedor3" @onclick="MapMultas">
+            <div class="card" style="width: 100%;">
+                <div class="card-body cadarbodywith">
+                    <h5 class="card-title">Mapa</h5>
+                    <i class="fa-solid fa-building-shield"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contenedor4">
+        <div class="targeta-contenedor4" @onclick="Comision">
+            <div class="card" style="width: 100%;">
+                <div class="card-body cadarbodywith">
+                    <h5 class="card-title">Comisiones</h5>
+                    <i class="fa-solid fa-building-shield"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contenedor5">
+        <div class="targeta-contenedor5" @onclick="RegistrarMulta">
+            <div class="card" style="width: 100%;">
+                <div class="card-body cadarbodywith">
+                    <h5 class="card-title">Registrar Multa</h5>
+                    <i class="fa-solid fa-building-shield"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+
+    private void RegistrarMulta(){
+        nav.NavigateTo("Agentes/registrarmulta");
+    }
+
+    private void ListadoMultas(){
+        nav.NavigateTo("../ListadoMultas");
+    }
+
+    private void MapMultas(){
+        nav.NavigateTo("Agentes/MapaAgentes");
+    }
+
+    private void Comision(){
+        nav.NavigateTo("../comision");
+    }
+
+    private void AcercaDe(){
+        nav.NavigateTo("../AcercaDe");
+    }
+}
