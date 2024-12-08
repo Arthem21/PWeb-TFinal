@@ -45,6 +45,7 @@ C:\web\Programacion-web-itla\Proyecto final\PWeb-TFinal\wwwroot\lib\bootstrap\di
 C:\web\Programacion-web-itla\Proyecto final\PWeb-TFinal\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css
 wwwroot\app.css
 wwwroot\favicon.png
+wwwroot\fotos\jose.jpg
 wwwroot\fotos\lg2.jpg
 wwwroot\fotos\selfi.jpg
 wwwroot\lib\bootstrap\dist\css\bootstrap.css

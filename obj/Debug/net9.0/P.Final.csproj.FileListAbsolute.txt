@@ -374,8 +374,6 @@ C:\web\Programacion-web-itla\Proyecto final\PWeb-TFinal\obj\Debug\net9.0\refint\
 C:\web\Programacion-web-itla\Proyecto final\PWeb-TFinal\obj\Debug\net9.0\P.Final.pdb
 C:\web\Programacion-web-itla\Proyecto final\PWeb-TFinal\obj\Debug\net9.0\P.Final.genruntimeconfig.cache
 C:\web\Programacion-web-itla\Proyecto final\PWeb-TFinal\obj\Debug\net9.0\ref\P.Final.dll
-C:\web\Programacion-web-itla\Proyecto final\PWeb-TFinal\obj\Debug\net9.0\compressed\bjgmgkooiw-9q3i35ech0.gz
-C:\web\Programacion-web-itla\Proyecto final\PWeb-TFinal\obj\Debug\net9.0\compressed\txse9s9cy9-9q3i35ech0.gz
 C:\web\Programacion-web-itla\Proyecto final\PWeb-TFinal\obj\Debug\net9.0\compressed\7xjm7f4hbm-f9o32d1ca0.gz
 C:\web\Programacion-web-itla\Proyecto final\PWeb-TFinal\obj\Debug\net9.0\compressed\av8e390m5a-d1tmfoyopj.gz
 C:\web\Programacion-web-itla\Proyecto final\PWeb-TFinal\obj\Debug\net9.0\compressed\azkxpb7evs-awt5fbhks9.gz
@@ -389,3 +387,5 @@ C:\web\Programacion-web-itla\Proyecto final\PWeb-TFinal\obj\Debug\net9.0\compres
 C:\web\Programacion-web-itla\Proyecto final\PWeb-TFinal\obj\Debug\net9.0\compressed\t3vzxjd0z5-5rkqwfey0g.gz
 C:\web\Programacion-web-itla\Proyecto final\PWeb-TFinal\obj\Debug\net9.0\compressed\id2550v1an-hz47i1tfz5.gz
 C:\web\Programacion-web-itla\Proyecto final\PWeb-TFinal\obj\Debug\net9.0\compressed\ex5sbhnjp0-2bhyhyet7a.gz
+C:\web\Programacion-web-itla\Proyecto final\PWeb-TFinal\obj\Debug\net9.0\compressed\bjgmgkooiw-b1h8fqkejm.gz
+C:\web\Programacion-web-itla\Proyecto final\PWeb-TFinal\obj\Debug\net9.0\compressed\txse9s9cy9-b1h8fqkejm.gz

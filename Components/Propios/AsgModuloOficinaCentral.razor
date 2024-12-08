@@ -2,13 +2,13 @@
 @rendermode InteractiveServer
 @inject NavigationManager nav
 
-<h3>Modulo Agentes</h3>
+<h3>Modulo Oficina Central</h3>
 
 <button @onclick="Salir" class="btn btn-danger mb-3 mt-3"><i class="fa-solid fa-door-open"></i>Salir</button>
 
 
 <div class="cards-container">
-    <div class="card-box" @onclick="RegistrarMulta">
+    <div class="card-box" @onclick="GestionarMulta">
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Registrar Multa</h5>
@@ -58,9 +58,9 @@
 
 @code {
 
-    private void RegistrarMulta()
+    private void GestionarMulta()
     {
-        nav.NavigateTo("registrarmulta");
+        nav.NavigateTo("gestionarMultas");
     }
 
     private void ListadoMultas()

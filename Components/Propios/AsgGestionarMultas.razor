@@ -1,0 +1,66 @@
+﻿@inject NavigationManager Navigation
+@rendermode InteractiveServer
+@inject Contexto Dc
+
+<PageTitle>Multas</PageTitle>
+
+<h1>Multas</h1>
+
+<div class="text-end">
+    <button class="btn btn-primary" @onclick="AgregarNuevo">Agregar Nuevo</button>
+</div>
+
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">Cedula</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Costes</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Coordenadas</th>
+            <th scope="col">Foto</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var detention in ListaDetentions)
+        {
+            <tr>
+                <td>@detention.Cedula</td>
+                <td>@detention.Nombre</td>
+                <td>@detention.Costes</td>
+                <td>@detention.Fecha</td>
+                <td>@detention.Descripcion</td>
+                <td>@detention.Coordenadas()</td>
+                <td>
+                    <img src="@detention.Foto" width="100px" height="auto" />
+                </td>
+                <td>
+                    <button class="btn btn-warning" @onclick="() => EditDetention(detention.Id)">Editar</button>
+                    @* <button class="btn btn-danger"  @onclick="() => DeleteDetention(detention)">Eliminar</button> *@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    public List<Multa> ListaDetentions = new List<Multa>();
+
+    private void AgregarNuevo()
+    {
+        Navigation.NavigateTo("/registrarmulta/0");
+    }
+
+    private void EditDetention(int id)
+    {
+        Navigation.NavigateTo($"/registrarmulta/{id}");
+    }
+
+    // Simular la carga de datos
+    protected override void OnInitialized()
+    {
+        ListaDetentions = Dc.multas.ToList();
+
+    }
+}

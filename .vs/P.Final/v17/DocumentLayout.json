@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|c:\\web\\programacion-web-itla\\proyecto final\\pweb-tfinal\\components\\modelos\\agente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|solutionrelative:components\\modelos\\agente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|c:\\web\\programacion-web-itla\\proyecto final\\pweb-tfinal\\components\\pages\\listadomultas.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|solutionrelative:components\\pages\\listadomultas.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|c:\\web\\programacion-web-itla\\proyecto final\\pweb-tfinal\\components\\propios\\asgregistrarmulta.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|solutionrelative:components\\propios\\asgregistrarmulta.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|c:\\web\\programacion-web-itla\\proyecto final\\pweb-tfinal\\components\\propios\\asggestionarmultas.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|solutionrelative:components\\propios\\asggestionarmultas.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|c:\\web\\programacion-web-itla\\proyecto final\\pweb-tfinal\\components\\propios\\asgmodulooficinacentral.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|solutionrelative:components\\propios\\asgmodulooficinacentral.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|c:\\web\\programacion-web-itla\\proyecto final\\pweb-tfinal\\components\\pages\\modulocentral.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|solutionrelative:components\\pages\\modulocentral.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,46 +26,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Agente.cs",
-              "DocumentMoniker": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Modelos\\Agente.cs",
-              "RelativeDocumentMoniker": "Components\\Modelos\\Agente.cs",
-              "ToolTip": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Modelos\\Agente.cs",
-              "RelativeToolTip": "Components\\Modelos\\Agente.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-08T15:59:24.104Z",
+              "DocumentIndex": 1,
+              "Title": "AsgRegistrarMulta.razor",
+              "DocumentMoniker": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Propios\\AsgRegistrarMulta.razor",
+              "RelativeDocumentMoniker": "Components\\Propios\\AsgRegistrarMulta.razor",
+              "ToolTip": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Propios\\AsgRegistrarMulta.razor",
+              "RelativeToolTip": "Components\\Propios\\AsgRegistrarMulta.razor",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-08T20:14:42.374Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AsgModuloOficinaCentral.razor",
-              "DocumentMoniker": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Propios\\AsgModuloOficinaCentral.razor",
-              "RelativeDocumentMoniker": "Components\\Propios\\AsgModuloOficinaCentral.razor",
-              "ToolTip": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Propios\\AsgModuloOficinaCentral.razor",
-              "RelativeToolTip": "Components\\Propios\\AsgModuloOficinaCentral.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIcAAAAIAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "ListadoMultas.razor",
+              "DocumentMoniker": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Pages\\ListadoMultas.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\ListadoMultas.razor",
+              "ToolTip": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Pages\\ListadoMultas.razor",
+              "RelativeToolTip": "Components\\Pages\\ListadoMultas.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-08T15:50:13.37Z",
+              "WhenOpened": "2024-12-08T19:47:55.861Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ModuloCentral.razor",
-              "DocumentMoniker": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Pages\\ModuloCentral.razor",
-              "RelativeDocumentMoniker": "Components\\Pages\\ModuloCentral.razor",
-              "ToolTip": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Pages\\ModuloCentral.razor",
-              "RelativeToolTip": "Components\\Pages\\ModuloCentral.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAADAAAAAAAAAA==",
+              "Title": "AsgGestionarMultas.razor",
+              "DocumentMoniker": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Propios\\AsgGestionarMultas.razor",
+              "RelativeDocumentMoniker": "Components\\Propios\\AsgGestionarMultas.razor",
+              "ToolTip": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Propios\\AsgGestionarMultas.razor",
+              "RelativeToolTip": "Components\\Propios\\AsgGestionarMultas.razor",
+              "ViewState": "AgIAADIAAAAAAAAAAAAAADoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-08T15:49:24.477Z",
+              "WhenOpened": "2024-12-08T16:28:50.219Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AsgModuloOficinaCentral.razor",
+              "DocumentMoniker": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Propios\\AsgModuloOficinaCentral.razor",
+              "RelativeDocumentMoniker": "Components\\Propios\\AsgModuloOficinaCentral.razor",
+              "ToolTip": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Propios\\AsgModuloOficinaCentral.razor",
+              "RelativeToolTip": "Components\\Propios\\AsgModuloOficinaCentral.razor",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAD0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-08T16:24:27.117Z"
             }
           ]
         }

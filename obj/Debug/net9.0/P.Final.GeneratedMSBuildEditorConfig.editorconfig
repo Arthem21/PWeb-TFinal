@@ -84,6 +84,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNb2R1bG9DZW50cmFsLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Pages/Multas.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNdWx0YXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Pages/RegistrarMultas.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZWdpc3RyYXJNdWx0YXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -98,6 +102,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Propios/AsgAgentesLogin.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9waW9zXEFzZ0FnZW50ZXNMb2dpbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Propios/AsgGestionarMultas.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9waW9zXEFzZ0dlc3Rpb25hck11bHRhcy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Propios/AsgMap.razor]
