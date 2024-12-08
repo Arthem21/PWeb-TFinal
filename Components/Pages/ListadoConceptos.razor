@@ -16,7 +16,7 @@
     <table class="table table-striped table-bordered">
         <thead>
             <tr>
-                <th>ID</th>
+                <th>Id</th>
                 <th>Nombre</th>
                 <th>Monto</th>
                 <th>Acciones</th>
@@ -26,7 +26,7 @@
             @foreach (var concepto in conceptos)
             {
                 <tr>
-                    <td>@concepto.ID</td>
+                    <td>@concepto.Id</td>
                     <td>@concepto.Nombre</td>
                     <td>@concepto.Monto</td>
                     <td>
@@ -81,7 +81,7 @@ else if (modo == Modo.Editar)
 
     protected async Task Guardar()
     {
-        if (concepto.ID > 0)
+        if (concepto.Id > 0)
         {
             ctx.Conceptos.Update(concepto);
         }

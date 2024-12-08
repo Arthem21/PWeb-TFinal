@@ -1,0 +1,77 @@
+﻿@using Microsoft.EntityFrameworkCore
+@inject Contexto Dc
+@inject IJSRuntime Jsx
+@inject NavigationManager nav
+
+<PageTitle>Login</PageTitle>
+<div class="container-sm border border-success rounded pt-3 pb-3 pl-3 pr-3">
+<form @onsubmit="Buscarlogin">
+    <h3>Iniciar Sesión</h3>
+
+    <div class="form-group mt-3">
+        <label for="cedula">Cédula</label>
+        <input class="form-control" id="cedula" @bind="login.Cedula" required />
+    </div>
+
+    <div class="form-group mt-3">
+        <label for="password">Contraseña</label>
+        <input class="form-control" id="password" type="password" @bind="login.Clave" required />
+    </div>
+
+    <div class="form-group mt-3">
+        <label for="opciones">Tipo:</label>
+        <select id="opciones" class="form-control" @bind="login.Tipo" required>
+            <option value="">Selecciona una opción</option>
+            <option value="Agente">Agente</option>
+            <option value="Administrador">Administrador</option>
+            <option value="Central">Central</option>
+        </select>
+    </div>
+
+    <button class="btn btn-primary mt-3" type="submit">Iniciar</button>
+</form>
+</div>
+@code {
+    private Usuario login = new Usuario();
+
+    private async Task Buscarlogin()
+    {
+        if (string.IsNullOrWhiteSpace(login.Cedula) || string.IsNullOrWhiteSpace(login.Clave) || string.IsNullOrWhiteSpace(login.Tipo))
+        {
+            await Jsx.InvokeVoidAsync("alert", "Por favor, completa todos los campos.");
+            return;
+        }
+
+        
+        var usuario = await Dc.UsuarioDb
+            .FirstOrDefaultAsync(u => u.Cedula == login.Cedula && u.Clave == login.Clave && u.Tipo == login.Tipo);
+
+        if (usuario != null)
+        {
+            await Jsx.InvokeVoidAsync("alert", "Inicio de sesión exitoso");
+
+            
+            switch (login.Tipo)
+            {
+                case "Agente":
+                    nav.NavigateTo("/moduloagentes");
+                    break;
+                case "Administrador":
+                    nav.NavigateTo("/moduloadministrador");
+                    break;
+                case "Central":
+                    nav.NavigateTo("/modulocentral");
+                    break;
+                default:
+                    await Jsx.InvokeVoidAsync("alert", "Tipo de usuario desconocido.");
+                    break;
+            }
+        }
+        else
+        {
+            await Jsx.InvokeVoidAsync("alert", "Usuario o contraseña incorrectos");
+        }
+    }
+
+   
+}

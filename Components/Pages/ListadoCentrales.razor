@@ -16,7 +16,7 @@
     <table class="table table-striped table-bordered">
         <thead>
             <tr>
-                <th>ID</th>
+                <th>Id</th>
                 <th>Cédula</th>
                 <th>Nombre Completo</th>
                 <th>Acciones</th>
@@ -26,7 +26,7 @@
             @foreach (var central in centrales)
             {
                 <tr>
-                    <td>@central.ID</td>
+                    <td>@central.Id</td>
                     <td>@central.Cedula</td>
                     <td>@central.Nombre</td>
                     <td>
@@ -51,7 +51,7 @@ else if (modo == Modo.Editar)
         <DataAnnotationsValidator />
         <ValidationSummary />
         <div class="row mb-3">
-            @if(central.ID==0){
+            @if(central.Id==0){
             <div class="col">
                 <label for="Cedula" class="form-label">Cédula</label>
                 <InputText id="Cedula" class="form-control" @bind-Value="@central.Cedula" />
@@ -89,7 +89,7 @@ else if (modo == Modo.Editar)
 
     protected async Task Guardar()
     {
-        if (central.ID > 0)
+        if (central.Id > 0)
         {
             ctx.Centrales.Update(central);
         }

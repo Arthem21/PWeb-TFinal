@@ -1,8 +1,8 @@
 
-public class Agente:Ususario{
+public class Agente: Usuario{
 
     public static List<Multa> multas {get;set;}= new List<Multa>();
-    private static List<Multa> multasPropias {get; set;}= new List<Multa>();
+    private static List<Multa> multasPropias { get; set;}= new List<Multa>();
 
     private double comision{get; set;}=0;
 
@@ -23,7 +23,7 @@ public class Agente:Ususario{
 
             foreach(var multa in multas){
 
-                if(multa.Agente.ID==ID){
+                if(multa.Agente.Id==Id){
 
                     multasPropias.Add(multa);
                 }
@@ -45,7 +45,7 @@ public class Agente:Ususario{
 
                 if(multa.Estado!="Perdonada"){
                 
-                    x+= multa.Coste/10;
+                    x+= multa.Costes/10;
                 }
             }
 

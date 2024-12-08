@@ -1,5 +1,6 @@
 
-public class Central:Ususario{
+public class Central : Usuario
+{
 
     public static List<Agente> agentes = new List<Agente>();
     public static List<Multa> multas {get;set;}= Agente.multas;

@@ -16,93 +16,9 @@ namespace P.Final.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.0");
 
-            modelBuilder.Entity("Administracion", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Cedula")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Clave")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Nombre")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Tipo")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Administrativos");
-                });
-
-            modelBuilder.Entity("Agente", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Cedula")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Clave")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<double>("Comision")
-                        .HasColumnType("REAL");
-
-                    b.Property<string>("Nombre")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Tipo")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Agentes");
-                });
-
-            modelBuilder.Entity("Central", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Cedula")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Clave")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Nombre")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Tipo")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Centrales");
-                });
-
             modelBuilder.Entity("Concepto", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -113,28 +29,28 @@ namespace P.Final.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
                     b.ToTable("Conceptos");
                 });
 
             modelBuilder.Entity("Multa", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("AgenteID")
+                    b.Property<int?>("AgenteId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Cedula")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("ConceptoID")
+                    b.Property<int>("ConceptoId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<double>("Coste")
+                    b.Property<double>("Costes")
                         .HasColumnType("REAL");
 
                     b.Property<string>("Descripcion")
@@ -150,34 +66,90 @@ namespace P.Final.Migrations
                     b.Property<string>("Foto")
                         .HasColumnType("TEXT");
 
-                    b.Property<double?>("Latitud")
+                    b.Property<double>("Latitud")
                         .HasColumnType("REAL");
 
-                    b.Property<double?>("Longitud")
+                    b.Property<double>("Longitud")
                         .HasColumnType("REAL");
 
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
-                    b.HasIndex("AgenteID");
+                    b.HasIndex("AgenteId");
 
-                    b.HasIndex("ConceptoID");
+                    b.HasIndex("ConceptoId");
 
-                    b.ToTable("multas");
+                    b.ToTable("newUsuario");
+                });
+
+            modelBuilder.Entity("Usuario", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Cedula")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Clave")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasMaxLength(21)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Nombre")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Tipo")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UsuarioDb");
+
+                    b.HasDiscriminator().HasValue("Usuario");
+
+                    b.UseTphMappingStrategy();
+                });
+
+            modelBuilder.Entity("Administracion", b =>
+                {
+                    b.HasBaseType("Usuario");
+
+                    b.HasDiscriminator().HasValue("Administracion");
+                });
+
+            modelBuilder.Entity("Agente", b =>
+                {
+                    b.HasBaseType("Usuario");
+
+                    b.Property<double>("Comision")
+                        .HasColumnType("REAL");
+
+                    b.HasDiscriminator().HasValue("Agente");
+                });
+
+            modelBuilder.Entity("Central", b =>
+                {
+                    b.HasBaseType("Usuario");
+
+                    b.HasDiscriminator().HasValue("Central");
                 });
 
             modelBuilder.Entity("Multa", b =>
                 {
                     b.HasOne("Agente", "Agente")
                         .WithMany("MultasPropias")
-                        .HasForeignKey("AgenteID");
+                        .HasForeignKey("AgenteId");
 
                     b.HasOne("Concepto", "Concepto")
                         .WithMany()
-                        .HasForeignKey("ConceptoID")
+                        .HasForeignKey("ConceptoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

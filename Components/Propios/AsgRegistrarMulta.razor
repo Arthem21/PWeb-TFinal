@@ -1,0 +1,102 @@
+﻿@inject NavigationManager Navigation
+@rendermode InteractiveServer
+@inject Contexto Dc
+@inject IJSRuntime js
+
+<h1>Registrar multa</h1>
+<button @onclick="VolverMenu" class="btn btn-primary mb-3 mt-3">Menu</button>
+<div class="container border border-success rounded pt-3 pb-3 pl-3 pr-3">
+<EditForm Model="@newUsuario" OnValidSubmit="AddMulta">
+    @* <DataAnnotationsValidator />
+    <ValidationSummary /> *@
+
+        <div class="form-group ">
+        <label for="cedula">Cedula:</label>
+        <InputText class="form-control" id="cedula" @bind-Value="newUsuario.Cedula" />
+        @*  <ValidationMessage For="@(() => newUsuario.Cedula)" /> *@
+    </div>
+
+    <div class="form-group">
+        <label for="name">Nombre:</label>
+        <InputText class="form-control" id="name" @bind-Value="newUsuario.Nombre" />
+        @*  <ValidationMessage For="@(() => newUsuario.Nombre)" /> *@
+    </div>
+
+    <div class="form-group">
+        <label for="Costes">Costes:</label>
+        <InputNumber class="form-control" id="Costes" @bind-Value="newUsuario.Costes" />
+        @* <ValidationMessage For="@(() => newUsuario.Costes)" /> *@
+    </div>
+
+    <div class="form-group">
+        <label for="fc">Fecha:</label>
+        <InputDate class="form-control" id="#fc" @bind-Value="newUsuario.Fecha" />
+        @*  <ValidationMessage For="@(() => newUsuario.Fecha)" /> *@
+    </div>
+
+    <div class="form-group">
+        <label for="ds">Descripcion:</label>
+        <InputText class="form-control" id="ds" @bind-Value="newUsuario.Descripcion" />
+        @* <ValidationMessage For="@(() => newUsuario.Descripcion)" /> *@
+    </div>
+
+    <div class="form-group">
+        <label for="lt">Latitud:</label>
+        <InputNumber class="form-control" id="lt" @bind-Value="newUsuario.Latitud" />
+        @* <ValidationMessage For="@(() => newUsuario.Latitud)" /> *@
+    </div>
+
+    <div class="form-group">
+        <label for="lg">Longitud:</label>
+        <InputNumber class="form-control" id="lg" @bind-Value="newUsuario.Longitud" />
+        @* <ValidationMessage For="@(() => newUsuario.Longitud)" /> *@
+    </div>
+
+    <div class="form-group">
+        <label for="ft">Foto:</label>
+        <InputText class="form-control" id="ft" @bind-Value="newUsuario.Foto" />
+        @* <ValidationMessage For="@(() => newUsuario.Foto)" /> *@
+    </div>
+
+    <button class="btn btn-success mt-3 mb-3" type="submit">Guardar</button>
+</EditForm>
+</div>
+@code {
+
+    [Parameter]
+    public int Id { get; set; }
+
+    Multa newUsuario = new Multa();
+
+    protected override void OnInitialized()
+    {
+        if (Id != 0)
+        {
+            newUsuario = Dc.multas.Find(Id) ?? new Multa();
+        }
+    }
+
+    private async Task AddMulta()
+    {
+        if (newUsuario.Id > 0)
+        {
+            Dc.multas.Update(newUsuario);
+
+        }
+        else
+        {
+            Dc.multas.Add(newUsuario);
+
+        }
+        await Dc.SaveChangesAsync();
+        await js.InvokeVoidAsync("alert", "Datos Guardados Correctamente");
+        newUsuario = new Multa();
+        StateHasChanged();
+
+    }
+
+    private void VolverMenu(){
+        Navigation.NavigateTo("moduloagentes");
+    }
+}
+
