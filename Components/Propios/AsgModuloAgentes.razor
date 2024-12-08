@@ -6,8 +6,8 @@
 
 <button @onclick="Salir" class="btn btn-danger mb-3 mt-3"><i class="fa-solid fa-door-open"></i>Salir</button>
 
-
 <div class="cards-container">
+@* 
     <div class="card-box" @onclick="RegistrarMulta">
         <div class="card">
             <div class="card-body">
@@ -15,7 +15,7 @@
                 <i class="fa-solid fa-user"></i>
             </div>
         </div>
-    </div>
+    </div> *@
 
     <div class="card-box" @onclick="ListadoMultas">
         <div class="card">
@@ -58,9 +58,9 @@
 
 @code {
 
-    private void RegistrarMulta(){
-        nav.NavigateTo("registrarmulta");
-    }
+    // private void RegistrarMulta(){
+    //     nav.NavigateTo("registrarmulta");
+    // }
 
     private void ListadoMultas(){
         nav.NavigateTo("ListadoMultas");
