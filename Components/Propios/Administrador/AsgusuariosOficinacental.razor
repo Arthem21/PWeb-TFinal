@@ -1,15 +1,16 @@
-@page "/ListadoAgentes"
+﻿@inject NavigationManager Navigation
 @rendermode InteractiveServer
 @inject Contexto ctx
+@inject IJSRuntime js
 @using Microsoft.EntityFrameworkCore
 
-<PageTitle>Gestionar Agentes</PageTitle>
+<PageTitle>Usuarios oficina central</PageTitle>
 
-<h1>Gestionar Agentes</h1>
+<h1>Gestionar Usuarios Oficina Central</h1>
 
 @if(modo == Modo.Lista)
 {
-    <h3>Lista de Agentes</h3>
+    <h3>Lista de la Central</h3>
     <div class="text-end mb-3">
         <button class="btn btn-dark btn-lg" @onclick="() => modo = Modo.Editar">Agregar</button>
     </div>
@@ -17,27 +18,26 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Cédula</th>
-                <th>Nombre Completo</th>
-                <th>Comisión</th>
-                <th>Acciones</th>
+                <th>Nombre</th>
+                <th>Cedula</th>
+                <th>Clave</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var agente in agentes)
+            @foreach (var central in centrales)
             {
                 <tr>
-                    <td>@agente.Id</td>
-                    <td>@agente.Cedula</td>
-                    <td>@agente.Nombre</td>
-                    <td>@agente.Comision</td>
+                    <td>@central.Id</td>
+                    <td>@central.Nombre</td>
+                    <td>@central.Cedula</td>
+                    <td>@central.Clave</td>
                     <td>
                         <div class="text-center mb-3">
                             <div class="row">
-                                <button class="btn btn-dark btn-sm" @onclick="() => Editar(agente)">Editar</button>
+                                <button class="btn btn-dark btn-sm" @onclick="() => Editar(central)">Editar</button>
                             </div>
                             <div class="row">
-                                <button class="btn btn-danger btn-sm" @onclick="() => Borrar(agente)">Eliminar</button>
+                                <button class="btn btn-danger btn-sm" @onclick="() => Borrar(central)">Eliminar</button>
                             </div>
                         </div>
                     </td>
@@ -48,31 +48,32 @@
 }
 else if (modo == Modo.Editar)
 {
-    <h3>Editar Agente</h3>
-    <EditForm Model="@agente" OnValidSubmit="Guardar">
+    <h3>Editar Usuarios de la central</h3>
+    <EditForm Model="@central" OnValidSubmit="Guardar">
         <DataAnnotationsValidator />
         <ValidationSummary />
         <div class="row mb-3">
-            @if(agente.Id==0){
+            @if(central.Id==0){
             <div class="col">
                 <label for="Cedula" class="form-label">Cédula</label>
-                <InputText id="Cedula" class="form-control" @bind-Value="@agente.Cedula" />
+                <InputText id="Cedula" class="form-control" @bind-Value="@central.Cedula" />
             </div>
             }
-            <div class="col">
-                <label for="Nombre" class="form-label">Nombre Completo</label>
-                <InputText id="Nombre" class="form-control" @bind-Value="@agente.Nombre" />
-            </div>
+            <div class="form-group">
+            <label for="name">Nombre:</label>
+            <InputText class="form-control" id="name" @bind-Value="central.Nombre" />
+           
+        </div
             
         </div>
         <div class="row mb-3">
             <div class="col">
                 <label for="Clave" class="form-label">Clave</label>
-                <InputText id="Clave" class="form-control" @bind-Value="@agente.Clave" />
+                <InputText id="Clave" class="form-control" @bind-Value="@central.Clave" />
             </div>
         </div>
         <div class="text-center mb-3">
-            <button type="submit" class="btn btn-dark btn-lg">Guardar Agente</button>
+            <button type="submit" class="btn btn-dark btn-lg">Guardar</button>
         </div>
     </EditForm>
 }
@@ -85,43 +86,46 @@ else if (modo == Modo.Editar)
     }
 
     Modo modo = Modo.Lista;
-    List<Agente> agentes = new List<Agente>();
-    Agente agente = new Agente();
+
+    List<Central> centrales = new List<Central>();
+
+    Central central = new Central();
+
 
     protected async Task Guardar()
     {
-        if (agente.Id > 0)
+        if (central.Id > 0)
         {
-            ctx.Agentes.Update(agente);
+            ctx.Centrales.Update(central);
         }
         else
         {
-            ctx.Agentes.Add(agente);
-            agentes.Add(agente);
+            ctx.Centrales.Add(central);
+            centrales.Add(central);
         }
 
         await ctx.SaveChangesAsync();
         StateHasChanged();
 
-        agente = new Agente();
+        central = new Central();
         modo = Modo.Lista;
     }
 
-    protected async Task Borrar(Agente x)
+    protected async Task Borrar(Central x)
     {
-        ctx.Agentes.Remove(x);
-        agentes.Remove(x);
+        ctx.Centrales.Remove(x);
+        centrales.Remove(x);
 
         await ctx.SaveChangesAsync();
         StateHasChanged();
 
-        agente = new Agente();
+        central = new Central();
         modo = Modo.Lista;
     }
 
-    public void Editar(Agente x)
+    public void Editar(Central x)
     {
-        this.agente = x;
+        this.central = x;
         modo = Modo.Editar;
     }
 
@@ -129,10 +133,11 @@ else if (modo == Modo.Editar)
     {
         if (render)
         {
-            agentes = await ctx.Agentes.ToListAsync();
-            Agente.multas = await ctx.multas.ToListAsync();
+            centrales = await ctx.Centrales.ToListAsync();
+            Central.multas = await ctx.multas.ToListAsync();
             await ctx.SaveChangesAsync();
         }
         StateHasChanged();
     }
 }
+

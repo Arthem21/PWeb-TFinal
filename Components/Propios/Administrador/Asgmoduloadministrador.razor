@@ -8,11 +8,11 @@
 
 
 <div class="cards-container">
-    <div class="card-box" @onclick="GestionarMulta">
+    <div class="card-box" @onclick="UsuariosOficinaCental">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Gestionar Multa</h5>
-                <i class="fa-solid fa-list"></i>
+                <h5 class="card-title">Gestionar Usuarios de la central</h5>
+                <i class="fa-solid fa-user"></i>
             </div>
         </div>
     </div>
@@ -48,9 +48,9 @@
 
 @code {
 
-    private void GestionarMulta()
+    private void UsuariosOficinaCental()
     {
-        nav.NavigateTo("gestionarMultas");
+        nav.NavigateTo("usuariosOficinacental");
     }
 
     private void ReporteIngresos()

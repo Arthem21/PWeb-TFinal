@@ -1,0 +1,139 @@
+@page "/ListadoAgentes"
+@rendermode InteractiveServer
+@inject Contexto ctx
+@using Microsoft.EntityFrameworkCore
+
+<PageTitle>Gestionar Agentes</PageTitle>
+
+<h1>Gestionar Agentes</h1>
+
+@if(modo == Modo.Lista)
+{
+    <h3>Lista de Agentes</h3>
+    <div class="text-end mb-3">
+        <button class="btn btn-dark btn-lg" @onclick="() => modo = Modo.Editar">Agregar</button>
+    </div>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Cédula</th>
+                <th>Nombre Completo</th>
+                <th>Comisión</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var agente in agentes)
+            {
+                <tr>
+                    <td>@agente.Id</td>
+                    <td>@agente.Cedula</td>
+                    <td>@agente.Nombre</td>
+                    <td>@agente.Comision</td>
+                    <td>
+                        <div class="text-center mb-3">
+                            <div class="row">
+                                <button class="btn btn-dark btn-sm" @onclick="() => Editar(agente)">Editar</button>
+                            </div>
+                            <div class="row">
+                                <button class="btn btn-danger btn-sm" @onclick="() => Borrar(agente)">Eliminar</button>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (modo == Modo.Editar)
+{
+    <h3>Editar Agente</h3>
+    <EditForm Model="@agente" OnValidSubmit="Guardar">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div class="row mb-3">
+            @if(agente.Id==0){
+            <div class="col">
+                <label for="Cedula" class="form-label">Cédula</label>
+                <InputText id="Cedula" class="form-control" @bind-Value="@agente.Cedula" />
+            </div>
+            }
+            <div class="col">
+                <label for="Nombre" class="form-label">Nombre Completo</label>
+                <InputText id="Nombre" class="form-control" @bind-Value="@agente.Nombre" />
+            </div>
+            
+        </div>
+        <div class="row mb-3">
+            <div class="col">
+                <label for="Clave" class="form-label">Clave</label>
+                <InputText id="Clave" class="form-control" @bind-Value="@agente.Clave" />
+            </div>
+        </div>
+        <div class="text-center mb-3">
+            <button type="submit" class="btn btn-dark btn-lg">Guardar Agente</button>
+        </div>
+    </EditForm>
+}
+
+@code {
+    enum Modo
+    {
+        Lista,
+        Editar
+    }
+
+    Modo modo = Modo.Lista;
+    List<Agente> agentes = new List<Agente>();
+    Agente agente = new Agente();
+
+
+    protected async Task Guardar()
+    {
+        if (agente.Id > 0)
+        {
+            ctx.Agentes.Update(agente);
+        }
+        else
+        {
+            ctx.Agentes.Add(agente);
+            agentes.Add(agente);
+        }
+
+        await ctx.SaveChangesAsync();
+        StateHasChanged();
+
+        agente = new Agente();
+        modo = Modo.Lista;
+    }
+
+    protected async Task Borrar(Agente x)
+    {
+        ctx.Agentes.Remove(x);
+        agentes.Remove(x);
+
+        await ctx.SaveChangesAsync();
+        StateHasChanged();
+
+        agente = new Agente();
+        modo = Modo.Lista;
+    }
+
+    public void Editar(Agente x)
+    {
+        this.agente = x;
+        modo = Modo.Editar;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool render)
+    {
+        if (render)
+        {
+            agentes = await ctx.Agentes.ToListAsync();
+            Agente.multas = await ctx.multas.ToListAsync();
+            await ctx.SaveChangesAsync();
+        }
+        StateHasChanged();
+    }
+}

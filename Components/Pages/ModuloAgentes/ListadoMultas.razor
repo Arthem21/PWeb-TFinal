@@ -165,9 +165,24 @@ else if (modo == Modo.Editar)
 
     List<Multa> multas = new List<Multa>();
 
+
+
     Multa multa = new Multa();
 
     public string agente { get; set; } = string.Empty;
+
+    //comision agente
+
+    public List<Multa> ListaComision = new List<Multa>();
+    private double TotalCostes { get; set; } = 0;
+
+    private void Calcular()
+    {
+        double Costes = ListaComision
+        .Where(x => x.Estado != Multa.Estados.Perdonada.ToString())
+        .Sum(x => x.Costes);
+        TotalCostes = Costes * 0.10;
+    }
 
     protected async Task Guardar()
     {

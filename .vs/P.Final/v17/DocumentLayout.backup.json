@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|c:\\web\\programacion-web-itla\\proyecto final\\pweb-tfinal\\components\\propios\\asgmoduloadministrador.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|solutionrelative:components\\propios\\asgmoduloadministrador.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|c:\\web\\programacion-web-itla\\proyecto final\\pweb-tfinal\\components\\propios\\administrador\\asgusuariosoficinacental.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|solutionrelative:components\\propios\\administrador\\asgusuariosoficinacental.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|c:\\web\\programacion-web-itla\\proyecto final\\pweb-tfinal\\components\\modelos\\central.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|solutionrelative:components\\modelos\\central.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|c:\\web\\programacion-web-itla\\proyecto final\\pweb-tfinal\\components\\modelos\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|solutionrelative:components\\modelos\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Modelos\\Usuario.cs",
+              "RelativeDocumentMoniker": "Components\\Modelos\\Usuario.cs",
+              "ToolTip": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Modelos\\Usuario.cs",
+              "RelativeToolTip": "Components\\Modelos\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-09T22:31:10.151Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Central.cs",
+              "DocumentMoniker": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Modelos\\Central.cs",
+              "RelativeDocumentMoniker": "Components\\Modelos\\Central.cs",
+              "ToolTip": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Modelos\\Central.cs",
+              "RelativeToolTip": "Components\\Modelos\\Central.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-09T22:23:58.9Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Asgmoduloadministrador.razor",
-              "DocumentMoniker": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Propios\\Asgmoduloadministrador.razor",
-              "RelativeDocumentMoniker": "Components\\Propios\\Asgmoduloadministrador.razor",
-              "ToolTip": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Propios\\Asgmoduloadministrador.razor",
-              "RelativeToolTip": "Components\\Propios\\Asgmoduloadministrador.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAfAAAAAAAAAA==",
+              "Title": "AsgusuariosOficinacental.razor",
+              "DocumentMoniker": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Propios\\Administrador\\AsgusuariosOficinacental.razor",
+              "RelativeDocumentMoniker": "Components\\Propios\\Administrador\\AsgusuariosOficinacental.razor",
+              "ToolTip": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Propios\\Administrador\\AsgusuariosOficinacental.razor",
+              "RelativeToolTip": "Components\\Propios\\Administrador\\AsgusuariosOficinacental.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEsAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-09T14:21:58.206Z",
+              "WhenOpened": "2024-12-09T22:23:43.036Z",
               "EditorCaption": ""
             }
           ]
