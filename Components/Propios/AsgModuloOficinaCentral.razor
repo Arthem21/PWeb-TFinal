@@ -11,50 +11,40 @@
     <div class="card-box" @onclick="GestionarMulta">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Registrar Multa</h5>
-                <i class="fa-solid fa-user"></i>
-            </div>
-        </div>
-    </div>
-
-    @* <div class="card-box" @onclick="ListadoMultas">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Multas</h5>
+                <h5 class="card-title">Gestionar Multa</h5>
                 <i class="fa-solid fa-list"></i>
             </div>
         </div>
     </div>
 
-    <div class="card-box" @onclick="MapMultas">
+    <div class="card-box" @onclick="ReporteIngresos">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Mapa</h5>
-                <i class="fa-solid fa-map"></i>
-            </div>
-        </div>
-    </div>
-
-    <div class="card-box" @onclick="Comision">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Comisiones</h5>
+                <h5 class="card-title">Reporte Ingreso</h5>
                 <i class="fa-solid fa-money-bill"></i>
             </div>
         </div>
     </div>
-
-    <div class="card-box" @onclick="AcercaDe">
+    
+    <div class="card-box" @onclick="MapMultas">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Acerca de</h5>
-                <i class="fa-solid fa-address-card"></i>
+                <h5 class="card-title">Mapa Multas</h5>
+                <i class="fa-solid fa-map"></i>
             </div>
         </div>
-    </div> *@
+    </div>
+    
+    <div class="card-box" @onclick="GestionAgentes">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Agentes</h5>
+                <i class="fa-solid fa-user"></i>
+            </div>
+        </div>
+    </div>
+
 </div>
-
-
 
 @code {
 
@@ -63,25 +53,22 @@
         nav.NavigateTo("gestionarMultas");
     }
 
-    // private void ListadoMultas()
-    // {
-    //     nav.NavigateTo("ListadoMultas");
-    // }
+    private void ReporteIngresos()
+    {
+        nav.NavigateTo("ReporteIngresos");
+    }
 
-    // private void MapMultas()
-    // {
-    //     nav.NavigateTo("MapanewUsuario");
-    // }
+    private void MapMultas()
+    {
+        nav.NavigateTo("mapaFecha");
+    }
 
-    // private void Comision()
-    // {
-    //     nav.NavigateTo("comision");
-    // }
+    private void GestionAgentes()
+    {
+        nav.NavigateTo("ListadoAgentes");
+    }
 
-    // private void AcercaDe()
-    // {
-    //     nav.NavigateTo("AcercaDe");
-    // }
+    
 
     private void Salir()
     {

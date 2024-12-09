@@ -50,6 +50,7 @@
                     <td>@multa.Costes</td>
                     <td>@multa.Coordenadas()</td>
                     <td>@multa.Descripcion</td>
+                    <td>@multa.Nombre</td>
                     <td>
                         <button @onclick="() => Editar(multa)" class="btn btn-warning mb-3">Editar</button>
                     </td>
@@ -131,6 +132,13 @@ else if (modo == Modo.Editar)
                 <InputNumber id="Longitud" class="form-control" @bind-Value="@multa.Longitud" />
             </div>
         </div>
+
+        <div class="form-group">
+            <label for="Costes">Costes:</label>
+            <InputNumber class="form-control" id="Costes" @bind-Value="@multa.Costes" />
+           
+        </div>
+
         <div class="row mb-3">
             <div class="col">
                 <label for="descripcion" class="form-label">Descripcion</label>

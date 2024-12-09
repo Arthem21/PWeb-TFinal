@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|c:\\web\\programacion-web-itla\\proyecto final\\pweb-tfinal\\components\\propios\\asggestionarmultas.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|solutionrelative:components\\propios\\asggestionarmultas.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|c:\\web\\programacion-web-itla\\proyecto final\\pweb-tfinal\\components\\propios\\asgmoduloadministrador.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|solutionrelative:components\\propios\\asgmoduloadministrador.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AsgGestionarMultas.razor",
-              "DocumentMoniker": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Propios\\AsgGestionarMultas.razor",
-              "RelativeDocumentMoniker": "Components\\Propios\\AsgGestionarMultas.razor",
-              "ToolTip": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Propios\\AsgGestionarMultas.razor",
-              "RelativeToolTip": "Components\\Propios\\AsgGestionarMultas.razor",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAADoAAAAAAAAAAAAAAA==",
+              "Title": "Asgmoduloadministrador.razor",
+              "DocumentMoniker": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Propios\\Asgmoduloadministrador.razor",
+              "RelativeDocumentMoniker": "Components\\Propios\\Asgmoduloadministrador.razor",
+              "ToolTip": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Propios\\Asgmoduloadministrador.razor",
+              "RelativeToolTip": "Components\\Propios\\Asgmoduloadministrador.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-08T16:28:50.219Z",
+              "WhenOpened": "2024-12-09T14:21:58.206Z",
               "EditorCaption": ""
             }
           ]

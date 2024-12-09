@@ -1,66 +1,282 @@
 ﻿@inject NavigationManager Navigation
 @rendermode InteractiveServer
-@inject Contexto Dc
+@inject Contexto ctx
+@using Microsoft.EntityFrameworkCore
 
-<PageTitle>Multas</PageTitle>
+<PageTitle>Gestion de Multas</PageTitle>
 
-<h1>Multas</h1>
 
-<div class="text-end">
-    <button class="btn btn-primary" @onclick="AgregarNuevo">Agregar Nuevo</button>
-</div>
+<h1>Gestion de Multas</h1>
 
-<table class="table">
-    <thead class="thead-light">
-        <tr>
-            <th scope="col">Cedula</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Costes</th>
-            <th scope="col">Fecha</th>
-            <th scope="col">Descripcion</th>
-            <th scope="col">Coordenadas</th>
-            <th scope="col">Foto</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var detention in ListaDetentions)
-        {
-            <tr>
-                <td>@detention.Cedula</td>
-                <td>@detention.Nombre</td>
-                <td>@detention.Costes</td>
-                <td>@detention.Fecha</td>
-                <td>@detention.Descripcion</td>
-                <td>@detention.Coordenadas()</td>
-                <td>
-                    <img src="@detention.Foto" width="100px" height="auto" />
-                </td>
-                <td>
-                    <button class="btn btn-warning" @onclick="() => EditDetention(detention.Id)">Editar</button>
-                    @* <button class="btn btn-danger"  @onclick="() => DeleteDetention(detention)">Eliminar</button> *@
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+@if (modo == Modo.Lista)
+{
+    <h3>Lista de Multas</h3>
+    <div class="text-end mb-3 mt-3">
+        <button class="btn btn-success btn-lg" @onclick="() => modo = Modo.Editar">Agregar</button>
+    </div>
+    @if(multa == null)
+    {
+        <p><em>Cargando...</em></p>
+    }
+    else
+    {
+        <div class="input-group">
+            <input type="text" id="busqueda" placeholder="Nombre/Cedula" class="form-control"
+                   @bind="terminoBusqueda" />
+            <span class="input-group-btn">
+                <button class="btn btn-success btn-info" @onclick="Buscar">Buscar</button>
+            </span>
+        </div>
+
+
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Foto</th>
+                    <th scope="col">Agente</th>
+                    <th scope="col">Concepto</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Cedula</th>
+                    <th scope="col">Costes</th>
+                    <th scope="col">Coordenadas</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Nombre</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var multa in multasFiltradas)
+                {
+                    <tr>
+                        <td>
+                            @if (!string.IsNullOrEmpty(multa.Foto))
+                            {
+                                <img class="" src="@multa.Foto" alt="@multa.Nombre" width="100px" height="200px">
+                            }
+                        </td>
+                        <td>@agente</td>
+                        <td>@multa.Concepto</td>
+                        <td>@multa.Estado</td>
+                        <td>@multa.Fecha</td>
+                        <td>@multa.Cedula</td>
+                        <td>@multa.Costes</td>
+                        <td>@multa.Coordenadas()</td>
+                        <td>@multa.Descripcion</td>
+                        <td>@multa.Nombre</td>
+                        <td>
+                            <button @onclick="() => Editar(multa)" class="btn btn-warning mb-3">Editar</button>
+                        </td>
+                        <td>
+                            <button @onclick="() => Borrar(multa)" class="btn btn-danger mb-3">Borrar</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        @*   <div class="row">
+    @foreach(Multa multa in multas)
+    {
+        <div class="col-md-4 md-3">
+            <div class="card bg-light" style="width: 18rem; height:30rem;">
+                @if (!string.IsNullOrEmpty(multa.Foto))
+                {
+                    <img class="card-img-top" src="@multa.Foto" alt="@multa.Nombre" width="100px" height="260px">
+                }
+                <div class="card-body">
+                    <h5 class="card-title">Nombre: @multa.Nombre</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Agente: @agente</li>
+                        <li class="list-group-item">Concepto: @multa.Concepto.Nombre</li>
+                        <li class="list-group-item">Estado: @multa.Estado</li>
+                        <li class="list-group-item">Fecha: @multa.Fecha.ToShortDateString()</li>
+                        <li class="list-group-item">Cédula: @multa.Cedula</li>
+                        <li class="list-group-item">Coste:$ @multa.Costes</li>
+                        <li class="list-group-item">Coordenadas: @multa.Latitud, @multa.Longitud</li>
+                        <li class="list-group-item">Descripcion: @multa.Descripcion</li>
+                    </ul>
+                    <div class="row">
+                        <button @onclick="() => Editar(multa)" class="btn btn-warning mb-3">Editar</button>
+                    </div>
+                    <div class="row">
+                        <button @onclick="() => Borrar(multa)" class="btn btn-danger mb-3">Borrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div> *@
+    }
+
+
+}
+else if (modo == Modo.Editar)
+{
+    <h3>Editar Multa</h3>
+    <EditForm Model="@multa" OnValidSubmit="Guardar">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div class="row mb-3">
+            <div class="col">
+                <label for="Cedula" class="form-label">Cédula</label>
+                <InputText id="Cedula" class="form-control" @bind-Value="@multa.Cedula" />
+            </div>
+            <div class="col">
+                <label for="Nombre" class="form-label">Nombre</label>
+                <InputText id="Nombre" class="form-control" @bind-Value="@multa.Nombre" />
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col">
+                <label for="Fecha" class="form-label">Fecha</label>
+                <InputDate id="Fecha" class="form-control" @bind-Value="@multa.Fecha" />
+            </div>
+            <div class="col">
+                <label for="Foto" class="form-label">Foto</label>
+                <InputText id="Foto" class="form-control" @bind-Value="@multa.Foto" />
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col">
+                <label for="Latitud" class="form-label">Latitud</label>
+                <InputNumber id="Latitud" class="form-control" @bind-Value="@multa.Latitud" />
+            </div>
+            <div class="col">
+                <label for="Longitud" class="form-label">Longitud</label>
+                <InputNumber id="Longitud" class="form-control" @bind-Value="@multa.Longitud" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Costes">Costes:</label>
+            <InputNumber class="form-control" id="Costes" @bind-Value="@multa.Costes" />
+
+        </div>
+
+        <div class="row mb-3">
+            <div class="col">
+                <label for="descripcion" class="form-label">Descripcion</label>
+                <InputTextArea id="descripcion" class="form-control" @bind-Value="@multa.Descripcion" />
+            </div>
+        </div>
+
+        <div class="form-group mt-3">
+            <label for="estado">Estado:</label>
+            <select  @bind="multa.Estado" class="form-control">
+                @foreach(var estado in Enum.GetValues(typeof(Multa.Estados))){
+                    <option value="@estado">@estado</option>
+                }
+            </select>
+        </div>
+
+        <div class="text-center mb-3">
+            <button type="submit" class="btn btn-dark btn-lg">Guardar Multa</button>
+        </div>
+    </EditForm>
+}
+
+
 
 @code {
-    public List<Multa> ListaDetentions = new List<Multa>();
-
-    private void AgregarNuevo()
+    enum Modo
     {
-        Navigation.NavigateTo("/registrarmulta/0");
+        Lista,
+        Editar
     }
 
-    private void EditDetention(int id)
+    Modo modo = Modo.Lista;
+
+    List<Multa> multas = new List<Multa>();
+
+    Multa multa = new Multa();
+
+    public string agente { get; set; } = string.Empty;
+
+    //busqueda
+
+    private string terminoBusqueda = string.Empty;
+    private List<Multa> multasFiltradas = new List<Multa>(); 
+    private List<Multa> todasLasMultas = new List<Multa>(); 
+
+    private void Buscar()
     {
-        Navigation.NavigateTo($"/registrarmulta/{id}");
+        if (string.IsNullOrWhiteSpace(terminoBusqueda))
+        {
+            multasFiltradas = todasLasMultas; 
+        }
+        else
+        {
+            multasFiltradas = todasLasMultas
+                .Where(m => m.Nombre.Contains(terminoBusqueda, StringComparison.OrdinalIgnoreCase)
+                         || m.Cedula.Contains(terminoBusqueda, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+        }
     }
 
-    // Simular la carga de datos
-    protected override void OnInitialized()
-    {
-        ListaDetentions = Dc.multas.ToList();
 
+
+    protected async Task Guardar()
+    {
+        if (multa.Id > 0)
+        {
+            ctx.multas.Update(multa);
+        }
+        else
+        {
+            await ctx.multas.AddAsync(multa);
+            multas.Add(multa);
+        }
+
+        await ctx.SaveChangesAsync();
+        StateHasChanged();
+
+        multa = new Multa();
+        modo = Modo.Lista;
     }
+
+    protected async Task Borrar(Multa x)
+    {
+        ctx.multas.Remove(x);
+        multas.Remove(x);
+
+        await ctx.SaveChangesAsync();
+        StateHasChanged();
+
+        multa = new Multa();
+        modo = Modo.Lista;
+    }
+
+
+    public void Editar(Multa x)
+    {
+        this.multa = x;
+        modo = Modo.Editar;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool render)
+    {
+        if (render)
+        {
+            if (multa.Agente != null)
+            {
+                agente = multa.Agente.Nombre;
+            }
+            Administracion.Conceptos = await ctx.Conceptos.ToListAsync();
+            Agente.multas = await ctx.multas.ToListAsync();
+            multas = await ctx.multas.ToListAsync();
+
+            todasLasMultas = multas;
+            multasFiltradas = todasLasMultas;
+
+            await ctx.SaveChangesAsync();
+        }
+        StateHasChanged();
+    }
+
+   
+    }
+
+
+    
 }
