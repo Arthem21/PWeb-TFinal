@@ -61,38 +61,7 @@
             }
         </tbody>
     </table>
- @*   <div class="row">
-    @foreach(Multa multa in multas)
-    {
-        <div class="col-md-4 md-3">
-            <div class="card bg-light" style="width: 18rem; height:30rem;">
-                @if (!string.IsNullOrEmpty(multa.Foto))
-                {
-                    <img class="card-img-top" src="@multa.Foto" alt="@multa.Nombre" width="100px" height="260px">
-                }
-                <div class="card-body">
-                    <h5 class="card-title">Nombre: @multa.Nombre</h5>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Agente: @agente</li>
-                        <li class="list-group-item">Concepto: @multa.Concepto.Nombre</li>
-                        <li class="list-group-item">Estado: @multa.Estado</li>
-                        <li class="list-group-item">Fecha: @multa.Fecha.ToShortDateString()</li>
-                        <li class="list-group-item">Cédula: @multa.Cedula</li>
-                        <li class="list-group-item">Coste:$ @multa.Costes</li>
-                        <li class="list-group-item">Coordenadas: @multa.Latitud, @multa.Longitud</li>
-                        <li class="list-group-item">Descripcion: @multa.Descripcion</li>
-                    </ul>
-                    <div class="row">
-                        <button @onclick="() => Editar(multa)" class="btn btn-warning mb-3">Editar</button>
-                    </div>
-                    <div class="row">
-                        <button @onclick="() => Borrar(multa)" class="btn btn-danger mb-3">Borrar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    }
-</div> *@
+ 
 
 }
 else if (modo == Modo.Editar)
@@ -171,18 +140,7 @@ else if (modo == Modo.Editar)
 
     public string agente { get; set; } = string.Empty;
 
-    //comision agente
-
-    public List<Multa> ListaComision = new List<Multa>();
-    private double TotalCostes { get; set; } = 0;
-
-    private void Calcular()
-    {
-        double Costes = ListaComision
-        .Where(x => x.Estado != Multa.Estados.Perdonada.ToString())
-        .Sum(x => x.Costes);
-        TotalCostes = Costes * 0.10;
-    }
+    
 
     protected async Task Guardar()
     {
@@ -237,21 +195,4 @@ else if (modo == Modo.Editar)
         StateHasChanged();
     }
 
-
-    // private void AgregarNuevo()
-    // {
-    //     Navigation.NavigateTo("/registrarmulta/0");
-    // }
-
-    // private void EditDetention(int id)
-    // {
-    //     Navigation.NavigateTo($"/registrarmulta/{id}");
-    // }
-
-    // // Simular la carga de datos
-    // protected override void OnInitialized()
-    // {
-    //     multas = ctx.multas.ToList();
-
-    // }
 }

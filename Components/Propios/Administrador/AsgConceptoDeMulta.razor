@@ -1,0 +1,130 @@
+﻿@inject NavigationManager Navigation
+@rendermode InteractiveServer
+@inject Contexto ctx
+@using Microsoft.EntityFrameworkCore
+@inject IJSRuntime js
+
+<PageTitle>Concepto</PageTitle>
+
+
+<h1>Concepto de Conceptos</h1>
+<br/>
+@if (modo == Modo.Lista)
+{
+    <h3>Conceptos</h3>
+    <div class="text-end mb-3">
+        <button class="btn btn-success btn-lg" @onclick="() => modo = Modo.Editar">Agregar</button>
+    </div>
+
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Monto</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Concepto concepto in conceptos)
+            {
+                <tr>
+
+
+                    <td>@concepto.Id</td>
+                    <td>@concepto.Nombre</td>
+                    <td>@concepto.Monto</td>
+                    <td>
+                        <button @onclick="() => Editar(concepto)" class="btn btn-warning mb-3">Editar</button>
+                    </td>
+                    <td>
+                        <button @onclick="() => Borrar(concepto)" class="btn btn-danger mb-3">Borrar</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (modo == Modo.Editar)
+{
+    <h3>Editar Concepto</h3>
+    <EditForm Model="@concepto" OnValidSubmit="Guardar">
+
+        <div class="form-group">
+            <label for="Nombre" class="form-label">Nombre</label>
+            <InputText id="Nombre" class="form-control" @bind-Value="@concepto.Nombre" />
+        </div>
+
+        <div class="form-group">
+            <label for="monto" class="form-label">Fecha</label>
+            <InputDate id="monto" class="form-control" @bind-Value="@concepto.Monto" />
+        </div>
+
+        <div class="text-center mt-3 mb-3">
+            <button type="submit" class="btn btn-success btn-lg">Guardar</button>
+        </div>
+    </EditForm>
+}
+
+
+@code {
+    enum Modo
+    {
+        Lista,
+        Editar
+    }
+
+    Modo modo = Modo.Lista;
+
+    List<Concepto> conceptos = new List<Concepto>();
+
+    Concepto concepto = new Concepto();
+
+    protected async Task Guardar()
+    {
+        if (concepto.Id > 0)
+        {
+            ctx.Conceptos.Update(concepto);
+        }
+        else
+        {
+            await ctx.Conceptos.AddAsync(concepto);
+            conceptos.Add(concepto);
+        }
+        await js.InvokeVoidAsync("alert", "Datos Guardados con éxito");
+        await ctx.SaveChangesAsync();
+        StateHasChanged();
+
+        concepto = new Concepto();
+        modo = Modo.Lista;
+    }
+
+    protected async Task Borrar(Concepto x)
+    {
+        ctx.Conceptos.Remove(x);
+        conceptos.Remove(x);
+
+        await ctx.SaveChangesAsync();
+        StateHasChanged();
+        await js.InvokeVoidAsync("alert", "Datos Borrados con éxito");
+        concepto = new Concepto();
+        modo = Modo.Lista;
+    }
+
+    public void Editar(Concepto x)
+    {
+        this.concepto = x;
+        modo = Modo.Editar;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool render)
+    {
+        if (render)
+        {
+            conceptos = await ctx.Conceptos.ToListAsync();
+            await ctx.SaveChangesAsync();
+        }
+        StateHasChanged();
+    }
+
+}

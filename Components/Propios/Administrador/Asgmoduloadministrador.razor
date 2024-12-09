@@ -17,10 +17,10 @@
         </div>
     </div>
 
-    <div class="card-box" @onclick="ReporteIngresos">
+    <div class="card-box" @onclick="ConceptoDeMulta">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Reporte Ingreso</h5>
+                <h5 class="card-title">Concepto de Multa</h5>
                 <i class="fa-solid fa-money-bill"></i>
             </div>
         </div>
@@ -50,12 +50,12 @@
 
     private void UsuariosOficinaCental()
     {
-        nav.NavigateTo("usuariosOficinacental");
+        nav.NavigateTo("ListadoCentrales");
     }
 
-    private void ReporteIngresos()
+    private void ConceptoDeMulta()
     {
-        nav.NavigateTo("ReporteIngresos");
+        nav.NavigateTo("ConceptoDeMulta");
     }
 
     private void MapMultas()

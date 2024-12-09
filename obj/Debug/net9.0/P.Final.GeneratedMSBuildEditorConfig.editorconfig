@@ -32,6 +32,14 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Pages/Administrador/ConceptoDeMulta.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZG1pbmlzdHJhZG9yXENvbmNlcHRvRGVNdWx0YS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Pages/Administrador/ListadoCentrales.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZG1pbmlzdHJhZG9yXExpc3RhZG9DZW50cmFsZXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Pages/Administrador/ModuloAdministrador.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZG1pbmlzdHJhZG9yXE1vZHVsb0FkbWluaXN0cmFkb3IucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -46,10 +54,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Pages/ListadoCentrales.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xMaXN0YWRvQ2VudHJhbGVzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Pages/ListadoConceptos.razor]
@@ -106,6 +110,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Pages/Weather.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xXZWF0aGVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Propios/Administrador/AsgConceptoDeMulta.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9waW9zXEFkbWluaXN0cmFkb3JcQXNnQ29uY2VwdG9EZU11bHRhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Propios/Administrador/Asgmoduloadministrador.razor]
