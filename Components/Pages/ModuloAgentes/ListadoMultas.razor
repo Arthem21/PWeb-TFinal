@@ -3,6 +3,8 @@
 @rendermode InteractiveServer
 @inject Contexto ctx
 @using Microsoft.EntityFrameworkCore
+@using Microsoft.AspNetCore.Components.Forms
+@inject IJSRuntime js
 
 <PageTitle>Mantenimiento de Multas</PageTitle>
 
@@ -29,7 +31,7 @@
                 <th scope="col">Coordenadas</th>
                 <th scope="col">Descripcion</th>
                 <th scope="col">Nombre</th>
-                
+
             </tr>
         </thead>
         <tbody>
@@ -43,7 +45,7 @@
                         }
                     </td>
                     <td>@agente</td>
-                    <td>@multa.Concepto?.Nombre</td>
+                    <td>@multa.Concepto?.Nombre.ToString()</td>
                     <td>@multa.Estado</td>
                     <td>@multa.Fecha</td>
                     <td>@multa.Cedula</td>
@@ -61,7 +63,7 @@
             }
         </tbody>
     </table>
- 
+
 
 }
 else if (modo == Modo.Editar)
@@ -102,24 +104,28 @@ else if (modo == Modo.Editar)
             </div>
         </div>
 
-        <div class="form-group">
-            <label for="Costes">Costes:</label>
-            <InputNumber class="form-control" id="Costes" @bind-Value="@multa.Costes" />
-           
+        <div class="row mb-3">
+            <div class="col">
+                <label for="costes" class="form-label">Costes</label>
+                <InputNumber id="costes" class="form-control" @bind-value="@multa.Costes" readonly />
+            </div>
+            <div class="col">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label for="conceptoId" class="input-group-text">Concepto</label>
+                    </div>
+                </div>
+                    <select id="conceptoId" class="custom-select" @onchange="ActualizarPrecio">
+                        <option selected>Seleccione un concepto</option>
+                         @foreach (var concepto in conceptos)
+                         {
+                            <option value="@concepto.Id">@concepto.Nombre</option>
+
+                         }
+                    </select>
+            </div>
         </div>
-
-        <div class="col">
-            <label for="Concepto" class="form-label">Concepto</label>
-            <InputSelect id="Concepto" class="form-control" @bind-Value="@multa.Concepto">
-                <option value="">Seleccione un concepto</option>
-                @foreach (var concepto in conceptos)
-                {
-                    <option value="@concepto.Id">@concepto.Nombre</option>
-                }
-            </InputSelect>
-        </div>
-
-
+        
 
         <div class="row mb-3">
             <div class="col">
@@ -134,6 +140,8 @@ else if (modo == Modo.Editar)
     </EditForm>
 }
 
+
+
 @code {
     enum Modo
     {
@@ -145,11 +153,22 @@ else if (modo == Modo.Editar)
 
     List<Multa> multas = new List<Multa>();
 
-
+    List<Concepto> conceptos = new List<Concepto>();
 
     Multa multa = new Multa();
 
     public string agente { get; set; } = string.Empty;
+
+    private void ActualizarPrecio(ChangeEventArgs e) 
+    { 
+        var id = int.Parse(e.Value?.ToString() ?? "0");
+        multa.ConceptoId = id;
+        var conceptoSeleccionado = conceptos.FirstOrDefault(c => c.Id == id);
+        if (conceptoSeleccionado != null)
+        {
+            multa.Costes = conceptoSeleccionado.Monto;
+        }
+    }
 
 
     protected async Task Guardar()
@@ -160,22 +179,29 @@ else if (modo == Modo.Editar)
         }
         else
         {
-            await ctx.multas.AddAsync(multa);
+            ctx.multas.Add(multa);
             multas.Add(multa);
         }
 
         await ctx.SaveChangesAsync();
         multas = await ctx.multas.Include(m => m.Concepto).ToListAsync();
+        await js.InvokeVoidAsync("alert", "Datos Guardados con exito");
+        
         StateHasChanged();
-
         multa = new Multa();
         modo = Modo.Lista;
+        
+        
+
+        
     }
 
     protected async Task Borrar(Multa x)
     {
         ctx.multas.Remove(x);
         multas.Remove(x);
+
+        await js.InvokeVoidAsync("alert", "Datos Borrados con exito");
 
         await ctx.SaveChangesAsync();
         StateHasChanged();
@@ -190,7 +216,7 @@ else if (modo == Modo.Editar)
         modo = Modo.Editar;
     }
 
-    List<Concepto> conceptos = new List<Concepto>();
+    
 
     protected override async Task OnAfterRenderAsync(bool render)
     {
@@ -213,3 +239,11 @@ else if (modo == Modo.Editar)
     }
 
 }
+
+<style>
+        input[readonly].classname{
+      background-color:transparent;
+      border: 0;
+      font-size: 1em;
+    }
+</style>

@@ -14,7 +14,7 @@ public class Multa
     public string Nombre { get; set; } = string.Empty;
     public double Costes { get; set; } = 0;
     public Agente? Agente { get; set; }
-    
+    public int ConceptoId { get; set; }
     public Concepto Concepto { get; set; } = new Concepto();
     public DateTime Fecha { get; set; } = DateTime.Now;
     public string? Descripcion { get; set; }
@@ -29,18 +29,18 @@ public class Multa
 
     public string Estado { get; set; } = Estados.Activa.ToString();
 
-    //public double Coste
-    //{
-    //    set
-    //    {
-    //        if (Concepto != null)
-    //        {
-    //            Costes = Concepto.Monto;
-    //        }
-    //    }
-    //    get
-    //    {
-    //        return Costes;
-    //    }
-    //}
+    public double Coste
+    {
+        set
+        {
+            if (Concepto != null)
+            {
+                Costes = Concepto.Monto;
+            }
+        }
+        get
+        {
+            return Costes;
+        }
+    }
 }

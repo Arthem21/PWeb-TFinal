@@ -3,28 +3,8 @@
   "WorkspaceRootPath": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Migrations\\20241210003802_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20241210003802_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Migrations\\20241210003601_bugsfixed.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20241210003601_bugsfixed.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|c:\\web\\programacion-web-itla\\proyecto final\\pweb-tfinal\\components\\pages\\moduloagentes\\listadomultas.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|solutionrelative:components\\pages\\moduloagentes\\listadomultas.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|c:\\web\\programacion-web-itla\\proyecto final\\pweb-tfinal\\components\\modelos\\agente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|solutionrelative:components\\modelos\\agente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|c:\\web\\programacion-web-itla\\proyecto final\\pweb-tfinal\\components\\modelos\\multa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|solutionrelative:components\\modelos\\multa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Migrations\\20241210003125_somechanges.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20241210003125_somechanges.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -39,79 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "20241210003802_init.cs",
-              "DocumentMoniker": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Migrations\\20241210003802_init.cs",
-              "RelativeDocumentMoniker": "Migrations\\20241210003802_init.cs",
-              "ToolTip": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Migrations\\20241210003802_init.cs",
-              "RelativeToolTip": "Migrations\\20241210003802_init.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T00:38:02.757Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "20241210003601_bugsfixed.cs",
-              "DocumentMoniker": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Migrations\\20241210003601_bugsfixed.cs",
-              "RelativeDocumentMoniker": "Migrations\\20241210003601_bugsfixed.cs",
-              "ToolTip": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Migrations\\20241210003601_bugsfixed.cs",
-              "RelativeToolTip": "Migrations\\20241210003601_bugsfixed.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T00:36:01.493Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Agente.cs",
-              "DocumentMoniker": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Modelos\\Agente.cs",
-              "RelativeDocumentMoniker": "Components\\Modelos\\Agente.cs",
-              "ToolTip": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Modelos\\Agente.cs",
-              "RelativeToolTip": "Components\\Modelos\\Agente.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAowBkAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T00:34:03.95Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "20241210003125_somechanges.cs",
-              "DocumentMoniker": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Migrations\\20241210003125_somechanges.cs",
-              "RelativeDocumentMoniker": "Migrations\\20241210003125_somechanges.cs",
-              "ToolTip": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Migrations\\20241210003125_somechanges.cs",
-              "RelativeToolTip": "Migrations\\20241210003125_somechanges.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T00:31:26.878Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Multa.cs",
-              "DocumentMoniker": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Modelos\\Multa.cs",
-              "RelativeDocumentMoniker": "Components\\Modelos\\Multa.cs",
-              "ToolTip": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Modelos\\Multa.cs",
-              "RelativeToolTip": "Components\\Modelos\\Multa.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAA2wBAAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T00:10:19.768Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "ListadoMultas.razor",
               "DocumentMoniker": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Pages\\ModuloAgentes\\ListadoMultas.razor",
               "RelativeDocumentMoniker": "Components\\Pages\\ModuloAgentes\\ListadoMultas.razor",
               "ToolTip": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Pages\\ModuloAgentes\\ListadoMultas.razor",
               "RelativeToolTip": "Components\\Pages\\ModuloAgentes\\ListadoMultas.razor",
-              "ViewState": "AgIAAHoAAAAAAAAAAAAAAHAAAABYAAAAAAAAAA==",
+              "ViewState": "AgIAAIkAAAAAAAAAAAAUwJAAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-09T23:58:20.461Z",
+              "WhenOpened": "2024-12-10T10:35:53.499Z",
               "EditorCaption": ""
             }
           ]
