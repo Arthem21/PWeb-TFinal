@@ -1,4 +1,5 @@
-public class Administracion:Ususario{
+public class Administracion: Usuario
+{
 
     public static List<Central> Centrales = new List<Central>();
     public static List<Concepto> Conceptos {get;set;}= new List<Concepto>();

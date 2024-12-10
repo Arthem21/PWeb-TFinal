@@ -83,18 +83,18 @@
    * --------------------------------------------------------------------------
    */
 
-  const MAX_UID = 1000000;
+  const MAX_UId = 1000000;
   const MILLISECONDS_MULTIPLIER = 1000;
   const TRANSITION_END = 'transitionend';
 
   /**
-   * Properly escape IDs selectors to handle weird IDs
+   * Properly escape Ids selectors to handle weird Ids
    * @param {string} selector
    * @returns {string}
    */
   const parseSelector = selector => {
     if (selector && window.CSS && window.CSS.escape) {
-      // document.querySelector needs escaping to handle IDs (html5+) containing for instance /
+      // document.querySelector needs escaping to handle Ids (html5+) containing for instance /
       selector = selector.replace(/#([^\s"#']+)/g, (match, id) => `#${CSS.escape(id)}`);
     }
     return selector;
@@ -112,9 +112,9 @@
    * Public Util API
    */
 
-  const getUID = prefix => {
+  const getUId = prefix => {
     do {
-      prefix += Math.floor(Math.random() * MAX_UID);
+      prefix += Math.floor(Math.random() * MAX_UId);
     } while (document.getElementById(prefix));
     return prefix;
   };
@@ -735,7 +735,7 @@
     if (!selector || selector === '#') {
       let hrefAttribute = element.getAttribute('href');
 
-      // The only valid content that could double as a selector are IDs or classes,
+      // The only valid content that could double as a selector are Ids or classes,
       // so everything starting with `#` or `.`. If a "real" URL is used as the selector,
       // `document.querySelector` will rightfully complain it is invalid.
       // See https://github.com/twbs/bootstrap/issues/32273
@@ -1120,8 +1120,8 @@
   const ORDER_PREV = 'prev';
   const DIRECTION_LEFT = 'left';
   const DIRECTION_RIGHT = 'right';
-  const EVENT_SLIDE = `slide${EVENT_KEY$8}`;
-  const EVENT_SLID = `slid${EVENT_KEY$8}`;
+  const EVENT_SLIdE = `slide${EVENT_KEY$8}`;
+  const EVENT_SLId = `slid${EVENT_KEY$8}`;
   const EVENT_KEYDOWN$1 = `keydown${EVENT_KEY$8}`;
   const EVENT_MOUSEENTER$1 = `mouseenter${EVENT_KEY$8}`;
   const EVENT_MOUSELEAVE$1 = `mouseleave${EVENT_KEY$8}`;
@@ -1130,7 +1130,7 @@
   const EVENT_CLICK_DATA_API$5 = `click${EVENT_KEY$8}${DATA_API_KEY$5}`;
   const CLASS_NAME_CAROUSEL = 'carousel';
   const CLASS_NAME_ACTIVE$2 = 'active';
-  const CLASS_NAME_SLIDE = 'slide';
+  const CLASS_NAME_SLIdE = 'slide';
   const CLASS_NAME_END = 'carousel-item-end';
   const CLASS_NAME_START = 'carousel-item-start';
   const CLASS_NAME_NEXT = 'carousel-item-next';
@@ -1140,8 +1140,8 @@
   const SELECTOR_ACTIVE_ITEM = SELECTOR_ACTIVE + SELECTOR_ITEM;
   const SELECTOR_ITEM_IMG = '.carousel-item img';
   const SELECTOR_INDICATORS = '.carousel-indicators';
-  const SELECTOR_DATA_SLIDE = '[data-bs-slide], [data-bs-slide-to]';
-  const SELECTOR_DATA_RIDE = '[data-bs-ride="carousel"]';
+  const SELECTOR_DATA_SLIdE = '[data-bs-slide], [data-bs-slide-to]';
+  const SELECTOR_DATA_RIdE = '[data-bs-ride="carousel"]';
   const KEY_TO_DIRECTION = {
     [ARROW_LEFT_KEY$1]: DIRECTION_RIGHT,
     [ARROW_RIGHT_KEY$1]: DIRECTION_LEFT
@@ -1225,7 +1225,7 @@
         return;
       }
       if (this._isSliding) {
-        EventHandler.one(this._element, EVENT_SLID, () => this.cycle());
+        EventHandler.one(this._element, EVENT_SLId, () => this.cycle());
         return;
       }
       this.cycle();
@@ -1236,7 +1236,7 @@
         return;
       }
       if (this._isSliding) {
-        EventHandler.one(this._element, EVENT_SLID, () => this.to(index));
+        EventHandler.one(this._element, EVENT_SLId, () => this.to(index));
         return;
       }
       const activeIndex = this._getItemIndex(this._getActive());
@@ -1353,7 +1353,7 @@
           to: nextElementIndex
         });
       };
-      const slideEvent = triggerEvent(EVENT_SLIDE);
+      const slideEvent = triggerEvent(EVENT_SLIdE);
       if (slideEvent.defaultPrevented) {
         return;
       }
@@ -1378,7 +1378,7 @@
         nextElement.classList.add(CLASS_NAME_ACTIVE$2);
         activeElement.classList.remove(CLASS_NAME_ACTIVE$2, orderClassName, directionalClassName);
         this._isSliding = false;
-        triggerEvent(EVENT_SLID);
+        triggerEvent(EVENT_SLId);
       };
       this._queueCallback(completeCallBack, activeElement, this._isAnimated());
       if (isCycling) {
@@ -1386,7 +1386,7 @@
       }
     }
     _isAnimated() {
-      return this._element.classList.contains(CLASS_NAME_SLIDE);
+      return this._element.classList.contains(CLASS_NAME_SLIdE);
     }
     _getActive() {
       return SelectorEngine.findOne(SELECTOR_ACTIVE_ITEM, this._element);
@@ -1435,7 +1435,7 @@
    * Data API implementation
    */
 
-  EventHandler.on(document, EVENT_CLICK_DATA_API$5, SELECTOR_DATA_SLIDE, function (event) {
+  EventHandler.on(document, EVENT_CLICK_DATA_API$5, SELECTOR_DATA_SLIdE, function (event) {
     const target = SelectorEngine.getElementFromSelector(this);
     if (!target || !target.classList.contains(CLASS_NAME_CAROUSEL)) {
       return;
@@ -1457,7 +1457,7 @@
     carousel._maybeEnableCycle();
   });
   EventHandler.on(window, EVENT_LOAD_DATA_API$3, () => {
-    const carousels = SelectorEngine.find(SELECTOR_DATA_RIDE);
+    const carousels = SelectorEngine.find(SELECTOR_DATA_RIdE);
     for (const carousel of carousels) {
       Carousel.getOrCreateInstance(carousel);
     }
@@ -1487,8 +1487,8 @@
   const DATA_API_KEY$4 = '.data-api';
   const EVENT_SHOW$6 = `show${EVENT_KEY$7}`;
   const EVENT_SHOWN$6 = `shown${EVENT_KEY$7}`;
-  const EVENT_HIDE$6 = `hide${EVENT_KEY$7}`;
-  const EVENT_HIDDEN$6 = `hidden${EVENT_KEY$7}`;
+  const EVENT_HIdE$6 = `hide${EVENT_KEY$7}`;
+  const EVENT_HIdDEN$6 = `hidden${EVENT_KEY$7}`;
   const EVENT_CLICK_DATA_API$4 = `click${EVENT_KEY$7}${DATA_API_KEY$4}`;
   const CLASS_NAME_SHOW$7 = 'show';
   const CLASS_NAME_COLLAPSE = 'collapse';
@@ -1496,7 +1496,7 @@
   const CLASS_NAME_COLLAPSED = 'collapsed';
   const CLASS_NAME_DEEPER_CHILDREN = `:scope .${CLASS_NAME_COLLAPSE} .${CLASS_NAME_COLLAPSE}`;
   const CLASS_NAME_HORIZONTAL = 'collapse-horizontal';
-  const WIDTH = 'width';
+  const WIdTH = 'width';
   const HEIGHT = 'height';
   const SELECTOR_ACTIVES = '.collapse.show, .collapse.collapsing';
   const SELECTOR_DATA_TOGGLE$4 = '[data-bs-toggle="collapse"]';
@@ -1598,7 +1598,7 @@
       if (this._isTransitioning || !this._isShown()) {
         return;
       }
-      const startEvent = EventHandler.trigger(this._element, EVENT_HIDE$6);
+      const startEvent = EventHandler.trigger(this._element, EVENT_HIdE$6);
       if (startEvent.defaultPrevented) {
         return;
       }
@@ -1618,7 +1618,7 @@
         this._isTransitioning = false;
         this._element.classList.remove(CLASS_NAME_COLLAPSING);
         this._element.classList.add(CLASS_NAME_COLLAPSE);
-        EventHandler.trigger(this._element, EVENT_HIDDEN$6);
+        EventHandler.trigger(this._element, EVENT_HIdDEN$6);
       };
       this._element.style[dimension] = '';
       this._queueCallback(complete, this._element, true);
@@ -1634,7 +1634,7 @@
       return config;
     }
     _getDimension() {
-      return this._element.classList.contains(CLASS_NAME_HORIZONTAL) ? WIDTH : HEIGHT;
+      return this._element.classList.contains(CLASS_NAME_HORIZONTAL) ? WIdTH : HEIGHT;
     }
     _initializeChildren() {
       if (!this._config.parent) {
@@ -1725,8 +1725,8 @@
   const ARROW_DOWN_KEY$1 = 'ArrowDown';
   const RIGHT_MOUSE_BUTTON = 2; // MouseEvent.button value for the secondary button, usually the right button
 
-  const EVENT_HIDE$5 = `hide${EVENT_KEY$6}`;
-  const EVENT_HIDDEN$5 = `hidden${EVENT_KEY$6}`;
+  const EVENT_HIdE$5 = `hide${EVENT_KEY$6}`;
+  const EVENT_HIdDEN$5 = `hidden${EVENT_KEY$6}`;
   const EVENT_SHOW$5 = `show${EVENT_KEY$6}`;
   const EVENT_SHOWN$5 = `shown${EVENT_KEY$6}`;
   const EVENT_CLICK_DATA_API$3 = `click${EVENT_KEY$6}${DATA_API_KEY$3}`;
@@ -1850,7 +1850,7 @@
 
     // Private
     _completeHide(relatedTarget) {
-      const hideEvent = EventHandler.trigger(this._element, EVENT_HIDE$5, relatedTarget);
+      const hideEvent = EventHandler.trigger(this._element, EVENT_HIdE$5, relatedTarget);
       if (hideEvent.defaultPrevented) {
         return;
       }
@@ -1869,7 +1869,7 @@
       this._element.classList.remove(CLASS_NAME_SHOW$6);
       this._element.setAttribute('aria-expanded', 'false');
       Manipulator.removeDataAttribute(this._menu, 'popper');
-      EventHandler.trigger(this._element, EVENT_HIDDEN$5, relatedTarget);
+      EventHandler.trigger(this._element, EVENT_HIdDEN$5, relatedTarget);
     }
     _getConfig(config) {
       config = super._getConfig(config);
@@ -2408,9 +2408,9 @@
   const EVENT_KEY$4 = `.${DATA_KEY$4}`;
   const DATA_API_KEY$2 = '.data-api';
   const ESCAPE_KEY$1 = 'Escape';
-  const EVENT_HIDE$4 = `hide${EVENT_KEY$4}`;
-  const EVENT_HIDE_PREVENTED$1 = `hidePrevented${EVENT_KEY$4}`;
-  const EVENT_HIDDEN$4 = `hidden${EVENT_KEY$4}`;
+  const EVENT_HIdE$4 = `hide${EVENT_KEY$4}`;
+  const EVENT_HIdE_PREVENTED$1 = `hidePrevented${EVENT_KEY$4}`;
+  const EVENT_HIdDEN$4 = `hidden${EVENT_KEY$4}`;
   const EVENT_SHOW$4 = `show${EVENT_KEY$4}`;
   const EVENT_SHOWN$4 = `shown${EVENT_KEY$4}`;
   const EVENT_RESIZE$1 = `resize${EVENT_KEY$4}`;
@@ -2489,7 +2489,7 @@
       if (!this._isShown || this._isTransitioning) {
         return;
       }
-      const hideEvent = EventHandler.trigger(this._element, EVENT_HIDE$4);
+      const hideEvent = EventHandler.trigger(this._element, EVENT_HIdE$4);
       if (hideEvent.defaultPrevented) {
         return;
       }
@@ -2592,14 +2592,14 @@
         document.body.classList.remove(CLASS_NAME_OPEN);
         this._resetAdjustments();
         this._scrollBar.reset();
-        EventHandler.trigger(this._element, EVENT_HIDDEN$4);
+        EventHandler.trigger(this._element, EVENT_HIdDEN$4);
       });
     }
     _isAnimated() {
       return this._element.classList.contains(CLASS_NAME_FADE$3);
     }
     _triggerBackdropTransition() {
-      const hideEvent = EventHandler.trigger(this._element, EVENT_HIDE_PREVENTED$1);
+      const hideEvent = EventHandler.trigger(this._element, EVENT_HIdE_PREVENTED$1);
       if (hideEvent.defaultPrevented) {
         return;
       }
@@ -2673,7 +2673,7 @@
         // only register focus restorer if modal will actually get shown
         return;
       }
-      EventHandler.one(target, EVENT_HIDDEN$4, () => {
+      EventHandler.one(target, EVENT_HIdDEN$4, () => {
         if (isVisible(this)) {
           this.focus();
         }
@@ -2716,14 +2716,14 @@
   const ESCAPE_KEY = 'Escape';
   const CLASS_NAME_SHOW$3 = 'show';
   const CLASS_NAME_SHOWING$1 = 'showing';
-  const CLASS_NAME_HIDING = 'hiding';
+  const CLASS_NAME_HIdING = 'hiding';
   const CLASS_NAME_BACKDROP = 'offcanvas-backdrop';
   const OPEN_SELECTOR = '.offcanvas.show';
   const EVENT_SHOW$3 = `show${EVENT_KEY$3}`;
   const EVENT_SHOWN$3 = `shown${EVENT_KEY$3}`;
-  const EVENT_HIDE$3 = `hide${EVENT_KEY$3}`;
-  const EVENT_HIDE_PREVENTED = `hidePrevented${EVENT_KEY$3}`;
-  const EVENT_HIDDEN$3 = `hidden${EVENT_KEY$3}`;
+  const EVENT_HIdE$3 = `hide${EVENT_KEY$3}`;
+  const EVENT_HIdE_PREVENTED = `hidePrevented${EVENT_KEY$3}`;
+  const EVENT_HIdDEN$3 = `hidden${EVENT_KEY$3}`;
   const EVENT_RESIZE = `resize${EVENT_KEY$3}`;
   const EVENT_CLICK_DATA_API$1 = `click${EVENT_KEY$3}${DATA_API_KEY$1}`;
   const EVENT_KEYDOWN_DISMISS = `keydown.dismiss${EVENT_KEY$3}`;
@@ -2801,23 +2801,23 @@
       if (!this._isShown) {
         return;
       }
-      const hideEvent = EventHandler.trigger(this._element, EVENT_HIDE$3);
+      const hideEvent = EventHandler.trigger(this._element, EVENT_HIdE$3);
       if (hideEvent.defaultPrevented) {
         return;
       }
       this._focustrap.deactivate();
       this._element.blur();
       this._isShown = false;
-      this._element.classList.add(CLASS_NAME_HIDING);
+      this._element.classList.add(CLASS_NAME_HIdING);
       this._backdrop.hide();
       const completeCallback = () => {
-        this._element.classList.remove(CLASS_NAME_SHOW$3, CLASS_NAME_HIDING);
+        this._element.classList.remove(CLASS_NAME_SHOW$3, CLASS_NAME_HIdING);
         this._element.removeAttribute('aria-modal');
         this._element.removeAttribute('role');
         if (!this._config.scroll) {
           new ScrollBarHelper().reset();
         }
-        EventHandler.trigger(this._element, EVENT_HIDDEN$3);
+        EventHandler.trigger(this._element, EVENT_HIdDEN$3);
       };
       this._queueCallback(completeCallback, this._element, true);
     }
@@ -2831,7 +2831,7 @@
     _initializeBackDrop() {
       const clickCallback = () => {
         if (this._config.backdrop === 'static') {
-          EventHandler.trigger(this._element, EVENT_HIDE_PREVENTED);
+          EventHandler.trigger(this._element, EVENT_HIdE_PREVENTED);
           return;
         }
         this.hide();
@@ -2861,7 +2861,7 @@
           this.hide();
           return;
         }
-        EventHandler.trigger(this._element, EVENT_HIDE_PREVENTED);
+        EventHandler.trigger(this._element, EVENT_HIdE_PREVENTED);
       });
     }
 
@@ -2892,7 +2892,7 @@
     if (isDisabled(this)) {
       return;
     }
-    EventHandler.one(target, EVENT_HIDDEN$3, () => {
+    EventHandler.one(target, EVENT_HIdDEN$3, () => {
       // focus on trigger when it is closed
       if (isVisible(this)) {
         this.focus();
@@ -3178,13 +3178,13 @@
   const CLASS_NAME_SHOW$2 = 'show';
   const SELECTOR_TOOLTIP_INNER = '.tooltip-inner';
   const SELECTOR_MODAL = `.${CLASS_NAME_MODAL}`;
-  const EVENT_MODAL_HIDE = 'hide.bs.modal';
+  const EVENT_MODAL_HIdE = 'hide.bs.modal';
   const TRIGGER_HOVER = 'hover';
   const TRIGGER_FOCUS = 'focus';
   const TRIGGER_CLICK = 'click';
   const TRIGGER_MANUAL = 'manual';
-  const EVENT_HIDE$2 = 'hide';
-  const EVENT_HIDDEN$2 = 'hidden';
+  const EVENT_HIdE$2 = 'hide';
+  const EVENT_HIdDEN$2 = 'hidden';
   const EVENT_SHOW$2 = 'show';
   const EVENT_SHOWN$2 = 'shown';
   const EVENT_INSERTED = 'inserted';
@@ -3301,7 +3301,7 @@
     }
     dispose() {
       clearTimeout(this._timeout);
-      EventHandler.off(this._element.closest(SELECTOR_MODAL), EVENT_MODAL_HIDE, this._hideModalHandler);
+      EventHandler.off(this._element.closest(SELECTOR_MODAL), EVENT_MODAL_HIdE, this._hideModalHandler);
       if (this._element.getAttribute('data-bs-original-title')) {
         this._element.setAttribute('title', this._element.getAttribute('data-bs-original-title'));
       }
@@ -3358,7 +3358,7 @@
       if (!this._isShown()) {
         return;
       }
-      const hideEvent = EventHandler.trigger(this._element, this.constructor.eventName(EVENT_HIDE$2));
+      const hideEvent = EventHandler.trigger(this._element, this.constructor.eventName(EVENT_HIdE$2));
       if (hideEvent.defaultPrevented) {
         return;
       }
@@ -3385,7 +3385,7 @@
           this._disposePopper();
         }
         this._element.removeAttribute('aria-describedby');
-        EventHandler.trigger(this._element, this.constructor.eventName(EVENT_HIDDEN$2));
+        EventHandler.trigger(this._element, this.constructor.eventName(EVENT_HIdDEN$2));
       };
       this._queueCallback(complete, this.tip, this._isAnimated());
     }
@@ -3415,7 +3415,7 @@
       tip.classList.remove(CLASS_NAME_FADE$2, CLASS_NAME_SHOW$2);
       // TODO: v6 the following can be achieved with CSS only
       tip.classList.add(`bs-${this.constructor.NAME}-auto`);
-      const tipId = getUID(this.constructor.NAME).toString();
+      const tipId = getUId(this.constructor.NAME).toString();
       tip.setAttribute('id', tipId);
       if (this._isAnimated()) {
         tip.classList.add(CLASS_NAME_FADE$2);
@@ -3549,7 +3549,7 @@
           this.hide();
         }
       };
-      EventHandler.on(this._element.closest(SELECTOR_MODAL), EVENT_MODAL_HIDE, this._hideModalHandler);
+      EventHandler.on(this._element.closest(SELECTOR_MODAL), EVENT_MODAL_HIdE, this._hideModalHandler);
     }
     _fixTitle() {
       const title = this._element.getAttribute('title');
@@ -4027,8 +4027,8 @@
   const NAME$1 = 'tab';
   const DATA_KEY$1 = 'bs.tab';
   const EVENT_KEY$1 = `.${DATA_KEY$1}`;
-  const EVENT_HIDE$1 = `hide${EVENT_KEY$1}`;
-  const EVENT_HIDDEN$1 = `hidden${EVENT_KEY$1}`;
+  const EVENT_HIdE$1 = `hide${EVENT_KEY$1}`;
+  const EVENT_HIdDEN$1 = `hidden${EVENT_KEY$1}`;
   const EVENT_SHOW$1 = `show${EVENT_KEY$1}`;
   const EVENT_SHOWN$1 = `shown${EVENT_KEY$1}`;
   const EVENT_CLICK_DATA_API = `click${EVENT_KEY$1}`;
@@ -4088,7 +4088,7 @@
 
       // Search for active tab on same parent to deactivate it
       const active = this._getActiveElem();
-      const hideEvent = active ? EventHandler.trigger(active, EVENT_HIDE$1, {
+      const hideEvent = active ? EventHandler.trigger(active, EVENT_HIdE$1, {
         relatedTarget: innerElem
       }) : null;
       const showEvent = EventHandler.trigger(innerElem, EVENT_SHOW$1, {
@@ -4139,7 +4139,7 @@
         element.setAttribute('aria-selected', false);
         element.setAttribute('tabindex', '-1');
         this._toggleDropDown(element, false);
-        EventHandler.trigger(element, EVENT_HIDDEN$1, {
+        EventHandler.trigger(element, EVENT_HIdDEN$1, {
           relatedTarget: relatedElem
         });
       };
@@ -4301,12 +4301,12 @@
   const EVENT_MOUSEOUT = `mouseout${EVENT_KEY}`;
   const EVENT_FOCUSIN = `focusin${EVENT_KEY}`;
   const EVENT_FOCUSOUT = `focusout${EVENT_KEY}`;
-  const EVENT_HIDE = `hide${EVENT_KEY}`;
-  const EVENT_HIDDEN = `hidden${EVENT_KEY}`;
+  const EVENT_HIdE = `hide${EVENT_KEY}`;
+  const EVENT_HIdDEN = `hidden${EVENT_KEY}`;
   const EVENT_SHOW = `show${EVENT_KEY}`;
   const EVENT_SHOWN = `shown${EVENT_KEY}`;
   const CLASS_NAME_FADE = 'fade';
-  const CLASS_NAME_HIDE = 'hide'; // @deprecated - kept here only for backwards compatibility
+  const CLASS_NAME_HIdE = 'hide'; // @deprecated - kept here only for backwards compatibility
   const CLASS_NAME_SHOW = 'show';
   const CLASS_NAME_SHOWING = 'showing';
   const DefaultType = {
@@ -4359,7 +4359,7 @@
         EventHandler.trigger(this._element, EVENT_SHOWN);
         this._maybeScheduleHide();
       };
-      this._element.classList.remove(CLASS_NAME_HIDE); // @deprecated
+      this._element.classList.remove(CLASS_NAME_HIdE); // @deprecated
       reflow(this._element);
       this._element.classList.add(CLASS_NAME_SHOW, CLASS_NAME_SHOWING);
       this._queueCallback(complete, this._element, this._config.animation);
@@ -4368,14 +4368,14 @@
       if (!this.isShown()) {
         return;
       }
-      const hideEvent = EventHandler.trigger(this._element, EVENT_HIDE);
+      const hideEvent = EventHandler.trigger(this._element, EVENT_HIdE);
       if (hideEvent.defaultPrevented) {
         return;
       }
       const complete = () => {
-        this._element.classList.add(CLASS_NAME_HIDE); // @deprecated
+        this._element.classList.add(CLASS_NAME_HIdE); // @deprecated
         this._element.classList.remove(CLASS_NAME_SHOWING, CLASS_NAME_SHOW);
-        EventHandler.trigger(this._element, EVENT_HIDDEN);
+        EventHandler.trigger(this._element, EVENT_HIdDEN);
       };
       this._element.classList.add(CLASS_NAME_SHOWING);
       this._queueCallback(complete, this._element, this._config.animation);

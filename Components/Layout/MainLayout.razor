@@ -1,6 +1,6 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="page">
+@* <div class="page">
     <div class="sidebar">
         <NavMenu />
     </div>
@@ -20,4 +20,25 @@
     An unhandled error has occurred.
     <a href="." class="reload">Reload</a>
     <span class="dismiss">🗙</span>
-</div>
+</div> *@
+
+<header>
+    <nav>
+        <h3><a class="h3" href="/">DIGESETT</a></h3>
+        <ul>
+            
+            
+            <li><a class="link" href="registro">registro</a></li>
+            
+            <li><a class="link" href="moduloagentes">agentes</a></li>
+
+            <li><a href="modulocentral">Central</a></li>
+
+            <li><a href="moduloadministrador">Administrador</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="body">
+    @Body
+</main>

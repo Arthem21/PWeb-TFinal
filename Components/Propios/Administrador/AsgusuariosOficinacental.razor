@@ -1,0 +1,143 @@
+﻿@inject NavigationManager Navigation
+@rendermode InteractiveServer
+@inject Contexto ctx
+@inject IJSRuntime js
+@using Microsoft.EntityFrameworkCore
+
+<PageTitle>Usuarios oficina central</PageTitle>
+
+<h1>Gestionar Usuarios Oficina Central</h1>
+
+@if(modo == Modo.Lista)
+{
+    <h3>Lista de la Central</h3>
+    <div class="text-end mb-3">
+        <button class="btn btn-dark btn-lg" @onclick="() => modo = Modo.Editar">Agregar</button>
+    </div>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Cedula</th>
+                <th>Clave</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var central in centrales)
+            {
+                <tr>
+                    <td>@central.Id</td>
+                    <td>@central.Nombre</td>
+                    <td>@central.Cedula</td>
+                    <td>@central.Clave</td>
+                    <td>
+                        <div class="text-center mb-3">
+                            <div class="row">
+                                <button class="btn btn-dark btn-sm" @onclick="() => Editar(central)">Editar</button>
+                            </div>
+                            <div class="row">
+                                <button class="btn btn-danger btn-sm" @onclick="() => Borrar(central)">Eliminar</button>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (modo == Modo.Editar)
+{
+    <h3>Editar Usuarios de la central</h3>
+    <EditForm Model="@central" OnValidSubmit="Guardar">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div class="row mb-3">
+            @if(central.Id==0){
+            <div class="col">
+                <label for="Cedula" class="form-label">Cédula</label>
+                <InputText id="Cedula" class="form-control" @bind-Value="@central.Cedula" />
+            </div>
+            }
+            <div class="form-group">
+            <label for="name">Nombre:</label>
+            <InputText class="form-control" id="name" @bind-Value="central.Nombre" />
+           
+        </div
+            
+        </div>
+        <div class="row mb-3">
+            <div class="col">
+                <label for="Clave" class="form-label">Clave</label>
+                <InputText id="Clave" class="form-control" @bind-Value="@central.Clave" />
+            </div>
+        </div>
+        <div class="text-center mb-3">
+            <button type="submit" class="btn btn-dark btn-lg">Guardar</button>
+        </div>
+    </EditForm>
+}
+
+@code {
+    enum Modo
+    {
+        Lista,
+        Editar
+    }
+
+    Modo modo = Modo.Lista;
+
+    List<Central> centrales = new List<Central>();
+
+    Central central = new Central();
+
+
+    protected async Task Guardar()
+    {
+        if (central.Id > 0)
+        {
+            ctx.Centrales.Update(central);
+        }
+        else
+        {
+            ctx.Centrales.Add(central);
+            centrales.Add(central);
+        }
+
+        await ctx.SaveChangesAsync();
+        StateHasChanged();
+
+        central = new Central();
+        modo = Modo.Lista;
+    }
+
+    protected async Task Borrar(Central x)
+    {
+        ctx.Centrales.Remove(x);
+        centrales.Remove(x);
+
+        await ctx.SaveChangesAsync();
+        StateHasChanged();
+
+        central = new Central();
+        modo = Modo.Lista;
+    }
+
+    public void Editar(Central x)
+    {
+        this.central = x;
+        modo = Modo.Editar;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool render)
+    {
+        if (render)
+        {
+            centrales = await ctx.Centrales.ToListAsync();
+            Central.multas = await ctx.multas.ToListAsync();
+            await ctx.SaveChangesAsync();
+        }
+        StateHasChanged();
+    }
+}
+

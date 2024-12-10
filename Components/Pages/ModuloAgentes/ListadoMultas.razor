@@ -1,0 +1,249 @@
+@page "/ListadoMultas"
+@inject NavigationManager Navigation
+@rendermode InteractiveServer
+@inject Contexto ctx
+@using Microsoft.EntityFrameworkCore
+@using Microsoft.AspNetCore.Components.Forms
+@inject IJSRuntime js
+
+<PageTitle>Mantenimiento de Multas</PageTitle>
+
+
+<h1>Mantenimiento de Multas</h1>
+
+@if(modo == Modo.Lista)
+{
+    <h3>Lista de Multas</h3>
+    <div class="text-end mb-3">
+        <button class="btn btn-success btn-lg" @onclick="() => modo = Modo.Editar">Agregar</button>
+    </div>
+
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Foto</th>
+                <th scope="col">Agente</th>
+                <th scope="col">Concepto</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Cedula</th>
+                <th scope="col">Costes</th>
+                <th scope="col">Coordenadas</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Nombre</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Multa multa in multas)
+            {
+                <tr>
+                    <td>
+                        @if (!string.IsNullOrEmpty(multa.Foto))
+                        {
+                            <img class="" src="@multa.Foto" alt="@multa.Nombre" width="100px" height="200px">
+                        }
+                    </td>
+                    <td>@agente</td>
+                    <td>@multa.Concepto?.Nombre.ToString()</td>
+                    <td>@multa.Estado</td>
+                    <td>@multa.Fecha</td>
+                    <td>@multa.Cedula</td>
+                    <td>@multa.Costes</td>
+                    <td>@multa.Coordenadas()</td>
+                    <td>@multa.Descripcion</td>
+                    <td>@multa.Nombre</td>
+                    <td>
+                        <button @onclick="() => Editar(multa)" class="btn btn-warning mb-3">Editar</button>
+                    </td>
+                    <td>
+                        <button @onclick="() => Borrar(multa)" class="btn btn-danger mb-3">Borrar</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+}
+else if (modo == Modo.Editar)
+{
+    <h3>Editar Multa</h3>
+    <EditForm Model="@multa" OnValidSubmit="Guardar">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div class="row mb-3">
+            <div class="col">
+                <label for="Cedula" class="form-label">Cédula</label>
+                <InputText id="Cedula" class="form-control" @bind-Value="@multa.Cedula" />
+            </div>
+            <div class="col">
+                <label for="Nombre" class="form-label">Nombre</label>
+                <InputText id="Nombre" class="form-control" @bind-Value="@multa.Nombre" />
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col">
+                <label for="Fecha" class="form-label">Fecha</label>
+                <InputDate id="Fecha" class="form-control" @bind-Value="@multa.Fecha" />
+            </div>
+            <div class="col">
+                <label for="Foto" class="form-label">Foto</label>
+                <InputText id="Foto" class="form-control" @bind-Value="@multa.Foto" />
+            </div>
+        </div>        
+        <div class="row mb-3">
+            <div class="col">
+                <label for="Latitud" class="form-label">Latitud</label>
+                <InputNumber id="Latitud" class="form-control" @bind-Value="@multa.Latitud" />
+            </div>
+            <div class="col">
+                <label for="Longitud" class="form-label">Longitud</label>
+                <InputNumber id="Longitud" class="form-control" @bind-Value="@multa.Longitud" />
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col">
+                <label for="costes" class="form-label">Costes</label>
+                <InputNumber id="costes" class="form-control" @bind-value="@multa.Costes" readonly />
+            </div>
+            <div class="col">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label for="conceptoId" class="input-group-text">Concepto</label>
+                    </div>
+                </div>
+                    <select id="conceptoId" class="custom-select" @onchange="ActualizarPrecio">
+                        <option selected>Seleccione un concepto</option>
+                         @foreach (var concepto in conceptos)
+                         {
+                            <option value="@concepto.Id">@concepto.Nombre</option>
+
+                         }
+                    </select>
+            </div>
+        </div>
+        
+
+        <div class="row mb-3">
+            <div class="col">
+                <label for="descripcion" class="form-label">Descripcion</label>
+                <InputTextArea id="descripcion" class="form-control" @bind-Value="@multa.Descripcion" />
+            </div>
+        </div>
+
+        <div class="text-center mb-3">
+            <button type="submit" class="btn btn-dark btn-lg">Guardar Multa</button>
+        </div>
+    </EditForm>
+}
+
+
+
+@code {
+    enum Modo
+    {
+        Lista,
+        Editar
+    }
+
+    Modo modo = Modo.Lista;
+
+    List<Multa> multas = new List<Multa>();
+
+    List<Concepto> conceptos = new List<Concepto>();
+
+    Multa multa = new Multa();
+
+    public string agente { get; set; } = string.Empty;
+
+    private void ActualizarPrecio(ChangeEventArgs e) 
+    { 
+        var id = int.Parse(e.Value?.ToString() ?? "0");
+        multa.ConceptoId = id;
+        var conceptoSeleccionado = conceptos.FirstOrDefault(c => c.Id == id);
+        if (conceptoSeleccionado != null)
+        {
+            multa.Costes = conceptoSeleccionado.Monto;
+        }
+    }
+
+
+    protected async Task Guardar()
+    {
+        if (multa.Id > 0)
+        {
+            ctx.multas.Update(multa);
+        }
+        else
+        {
+            ctx.multas.Add(multa);
+            multas.Add(multa);
+        }
+
+        await ctx.SaveChangesAsync();
+        multas = await ctx.multas.Include(m => m.Concepto).ToListAsync();
+        await js.InvokeVoidAsync("alert", "Datos Guardados con exito");
+        
+        StateHasChanged();
+        multa = new Multa();
+        modo = Modo.Lista;
+        
+        
+
+        
+    }
+
+    protected async Task Borrar(Multa x)
+    {
+        ctx.multas.Remove(x);
+        multas.Remove(x);
+
+        await js.InvokeVoidAsync("alert", "Datos Borrados con exito");
+
+        await ctx.SaveChangesAsync();
+        StateHasChanged();
+
+        multa = new Multa();
+        modo = Modo.Lista;
+    }
+
+    public void Editar(Multa x)
+    {
+        this.multa = x;
+        modo = Modo.Editar;
+    }
+
+    
+
+    protected override async Task OnAfterRenderAsync(bool render)
+    {
+        if (render)
+        {
+            
+            if (multa.Agente != null)
+            {
+                agente = multa.Agente.Nombre;
+            }
+            Administracion.Conceptos = await ctx.Conceptos.ToListAsync();
+            Agente.multas = await ctx.multas.ToListAsync();
+            conceptos = await ctx.Conceptos.ToListAsync();
+            // multas = await ctx.multas.ToListAsync();
+            multas = await ctx.multas.Include(m => m.Concepto).ToListAsync();
+            await ctx.SaveChangesAsync();
+
+        }
+        StateHasChanged();
+    }
+
+}
+
+<style>
+        input[readonly].classname{
+      background-color:transparent;
+      border: 0;
+      font-size: 1em;
+    }
+</style>

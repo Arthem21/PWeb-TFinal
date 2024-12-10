@@ -1,0 +1,98 @@
+﻿@inject Contexto ctx
+@using Microsoft.EntityFrameworkCore
+
+<h3>Reporte de Ingresos 📈</h3>
+
+<div class="row mb-3">
+    <div class="col-md-4">
+        <label for="mes" class="form-label">Mes</label>
+        <select id="mes" class="form-control" @bind="mesSeleccionado">
+            @foreach (var mes in Enumerable.Range(1, 12))
+            {
+                <option value="@mes">@mes.ToString("D2")</option>
+            }
+        </select>
+    </div>
+    <div class="col-md-4">
+        <label for="anio" class="form-label">Año</label>
+        <select id="anio" class="form-control" @bind="anioSeleccionado">
+            @foreach (var anio in Enumerable.Range(2020, DateTime.Now.Year - 2019))
+            {
+                <option value="@anio">@anio</option>
+            }
+        </select>
+    </div>
+    <div class="col-md-4 d-flex align-items-end">
+        <button class="btn btn-primary" @onclick="GenerarReporte">Generar Reporte</button>
+    </div>
+</div>
+
+@if (reporte != null && reporte.Any())
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Tipo de Multa</th>
+                <th>Cantidad</th>
+                <th>Total Ingresado</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in reporte)
+            {
+                <tr>
+                    <td>@item.TipoMulta</td>
+                    <td>@item.Cantidad</td>
+                    <td>@item.Total.ToString("C")</td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="2">Total General</th>
+                <th>@reporte.Sum(x => x.Total).ToString("C")</th>
+            </tr>
+        </tfoot>
+    </table>
+}
+else if (reporteGenerado)
+{
+    <p>No hay datos para el mes y año seleccionados.</p>
+}
+
+@code {
+    private int mesSeleccionado = DateTime.Now.Month;
+    private int anioSeleccionado = DateTime.Now.Year;
+
+    private List<ReporteIngreso> reporte = new List<ReporteIngreso>();
+    private bool reporteGenerado = false;
+
+    private async Task GenerarReporte()
+    {
+        // Obtiene las multas desde la base de datos
+        var multas = await ctx.multas
+            .Where(m => m.Fecha.Month == mesSeleccionado && m.Fecha.Year == anioSeleccionado)
+            .ToListAsync();
+
+        // Agrupa las multas por tipo y calcula los totales
+        reporte = multas
+            .GroupBy(m => m.Concepto.Nombre) // Agrupa por tipo de multa
+            .Select(g => new ReporteIngreso
+                {
+                    TipoMulta = g.Key,
+                    Cantidad = g.Count(),
+                    Total = g.Sum(m => m.Costes)
+                })
+            .ToList();
+
+        reporteGenerado = true;
+    }
+
+    public class ReporteIngreso
+    {
+        public string TipoMulta { get; set; } = string.Empty;
+        public int Cantidad { get; set; }
+        public double Total { get; set; }
+    }
+}
+

@@ -1,0 +1,94 @@
+﻿@using static System.Console;
+@rendermode InteractiveServer
+@inject NavigationManager nav
+
+<h3> Módulo Administrativo</h3>
+
+<button @onclick="Salir" class="btn btn-danger mb-3 mt-3"><i class="fa-solid fa-door-open"></i>Salir</button>
+
+
+<div class="cards-container">
+    <div class="card-box" @onclick="UsuariosOficinaCental">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Gestionar Usuarios de la central</h5>
+                <i class="fa-solid fa-user"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-box" @onclick="ConceptoDeMulta">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Concepto de Multa</h5>
+                <i class="fa-solid fa-money-bill"></i>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@code {
+
+    private void UsuariosOficinaCental()
+    {
+        nav.NavigateTo("ListadoCentrales");
+    }
+
+    private void ConceptoDeMulta()
+    {
+        nav.NavigateTo("ListadoConceptos");
+    }
+
+
+    private void Salir()
+    {
+        nav.NavigateTo("/");
+    }
+}
+
+<style>
+    .cards-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 16px;
+        padding: 16px;
+    }
+
+
+    .card-box {
+        flex: 1 1 calc(20% - 16px);
+        max-width: calc(20% - 16px);
+        min-width: 200px;
+        box-sizing: border-box;
+    }
+
+
+    .card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 16px;
+        text-align: center;
+        background-color: #f9f9f9;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        height: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+        .card i {
+            font-size: 24px;
+            margin-top: 8px;
+        }
+
+
+    .card-title {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 8px;
+
+</style>

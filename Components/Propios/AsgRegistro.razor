@@ -1,0 +1,84 @@
+﻿@inject NavigationManager Navigation
+@rendermode InteractiveServer
+@inject Contexto Dc
+@inject IJSRuntime js
+
+<h1>Registrate</h1>
+
+
+<div class="container border border-success rounded pt-3 pb-3 pl-3 pr-3">
+    <EditForm Model="@newUsuario" OnValidSubmit="addUser">
+        @* <DataAnnotationsValidator />
+    <ValidationSummary /> *@
+
+        <div class="form-group">
+            <label for="name">Nombre:</label>
+            <InputText class="form-control" id="name" @bind-Value="newUsuario.Nombre" />
+            @*  <ValidationMessage For="@(() => newUsuario.Nombre)" /> *@
+        </div
+
+        <div class="form-group ">
+            <label for="cedula">Cedula:</label>
+            <InputText class="form-control" id="cedula" @bind-Value="newUsuario.Cedula" />
+            @*  <ValidationMessage For="@(() => newUsuario.Cedula)" /> *@
+        </div>
+
+        <div class="form-group">
+            <label for="clave">Clave:</label>
+            <InputText class="form-control" id="clave" @bind-Value="newUsuario.Clave" />
+            @* <ValidationMessage For="@(() => newUsuario.Costes)" /> *@
+        </div>
+
+        <div class="form-group">
+            <label for="opciones">Tipo:</label>
+           <select id="opciones" class="form-control" @bind="newUsuario.Tipo">
+            <option value="">Selecciona una opción</option>
+            @foreach (var option in options)
+            {
+                <option value="@option">@option</option>
+            }
+        </select>
+        </div>
+        <button class="btn btn-success mt-3 mb-3" type="submit">Guardar</button>
+    </EditForm>
+</div>
+@code {
+
+    [Parameter]
+    public int Id { get; set; }
+
+    Usuario newUsuario = new Usuario();
+
+    private List<string> options = new List<string> { "Agente", "Administrador", "Central" };
+
+    protected override void OnInitialized()
+    {
+        if (Id != 0)
+        {
+            newUsuario = Dc.UsuarioDb.Find(Id) ?? new Usuario();
+        }
+    }
+
+    private async Task addUser()
+    {
+        if (newUsuario.Id > 0)
+        {
+            Dc.UsuarioDb.Update(newUsuario);
+
+        }
+        else
+        {
+            Dc.UsuarioDb.Add(newUsuario);
+
+        }
+        await Dc.SaveChangesAsync();
+        await js.InvokeVoidAsync("alert", "Datos Guardados Correctamente");
+        newUsuario = new Usuario();
+        StateHasChanged();
+        Navigation.NavigateTo("/");
+
+    }
+
+    
+}
+
