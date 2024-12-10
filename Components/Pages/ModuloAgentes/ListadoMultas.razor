@@ -9,10 +9,14 @@
 
 <PageTitle>Mantenimiento de Multas</PageTitle>
 
+<div class="pagina-container">
+    
 
-<h1>Mantenimiento de Multas</h1>
-
-@if(modo == Modo.Lista)
+        <h1>Mantenimiento de Multas</h1>
+        
+            <br />
+        <div class="container">
+            @if(modo == Modo.Lista)
 {
     <h3>Lista de Multas</h3>
     <div class="text-end mb-3">
@@ -20,7 +24,7 @@
     </div>
 
     <table class="table">
-        <thead class="thead-light">
+        <thead class="thead-dark">
             <tr>
                 <th scope="col">Foto</th>
                 <th scope="col">Agente</th>
@@ -140,6 +144,11 @@ else if (modo == Modo.Editar)
         </div>
     </EditForm>
 }
+        </div>
+    </div>
+
+
+
 
 
 
@@ -247,5 +256,10 @@ else if (modo == Modo.Editar)
       background-color:transparent;
       border: 0;
       font-size: 1em;
+    }
+
+    .pagina-container{
+        width:100%;
+        min-height: 100vh;
     }
 </style>

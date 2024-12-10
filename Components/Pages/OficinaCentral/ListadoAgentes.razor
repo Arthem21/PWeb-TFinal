@@ -6,8 +6,10 @@
 <PageTitle>Gestionar Agentes</PageTitle>
 
 <h1>Gestionar Agentes</h1>
-
-@if(modo == Modo.Lista)
+<br />
+<div class="pagina-container">
+    <div class="container">
+        @if(modo == Modo.Lista)
 {
     <h3>Lista de Agentes</h3>
     <div class="text-end mb-3">
@@ -76,6 +78,9 @@ else if (modo == Modo.Editar)
         </div>
     </EditForm>
 }
+
+        </div>
+        </div>
 
 @code {
     enum Modo

@@ -1,32 +1,36 @@
 @page "/AcercaDe"
 
 <h1>Creadores de label pagina</h1>
+<div class="pagina-container">
+    <div class="container">
+        <div class="row">
+            @foreach (var perfil in Creadores)
+            {
+                <div class="col-md-4 md-3">
+                    <div class="card bg-light" style="width: 18rem; height:30rem;">
+                        @if (!string.IsNullOrEmpty(perfil.Foto))
+                        {
+                            <img class="card-img-top" src="@perfil.Foto" alt="@perfil.Nombre" width="100px" height="260px">
+                        }
+                        <div class="card-body">
+                            <h5 class="card-title">Nombre: @perfil.Nombre</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Nombre: @perfil.Nombre </li>
+                                <li class="list-group-item">Apellido: @perfil.Apellido </li>
+                                <li class="list-group-item">Matricula: @perfil.Matricula </li>
+                            </ul>
+                            <div class="row">
+                                <a href="@perfil.Telegram" target="_blank" class="btn btn-primary">Telegram</a>
+                            </div>
 
-<div class="row">
-    @foreach (var perfil in Creadores)
-    {
-        <div class="col-md-4 md-3">
-            <div class="card bg-light" style="width: 18rem; height:30rem;">
-                @if (!string.IsNullOrEmpty(perfil.Foto))
-                {
-                    <img class="card-img-top" src="@perfil.Foto" alt="@perfil.Nombre" width="100px" height="260px">
-                }
-                <div class="card-body">
-                    <h5 class="card-title">Nombre: @perfil.Nombre</h5>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Nombre: @perfil.Nombre </li>
-                        <li class="list-group-item">Apellido: @perfil.Apellido </li>
-                        <li class="list-group-item">Matricula: @perfil.Matricula </li>
-                    </ul>
-                    <div class="row">
-                        <a href="@perfil.Telegram" target="_blank" class="btn btn-primary">Telegram</a>
+                        </div>
                     </div>
-
                 </div>
-            </div>
+            }
         </div>
-    }
+    </div>
 </div>
+
 
 @code {
 

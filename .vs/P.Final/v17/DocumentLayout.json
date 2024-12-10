@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|c:\\web\\programacion-web-itla\\proyecto final\\pweb-tfinal\\components\\pages\\moduloagentes\\acercade.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|solutionrelative:components\\pages\\moduloagentes\\acercade.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|c:\\web\\programacion-web-itla\\proyecto final\\pweb-tfinal\\components\\pages\\moduloagentes\\mapaagente.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|solutionrelative:components\\pages\\moduloagentes\\mapaagente.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|c:\\web\\programacion-web-itla\\proyecto final\\pweb-tfinal\\components\\propios\\asglogin.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|solutionrelative:components\\propios\\asglogin.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|c:\\web\\programacion-web-itla\\proyecto final\\pweb-tfinal\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|solutionrelative:components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|c:\\web\\programacion-web-itla\\proyecto final\\pweb-tfinal\\components\\pages\\moduloagentes\\listadomultas.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|solutionrelative:components\\pages\\moduloagentes\\listadomultas.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|c:\\web\\programacion-web-itla\\proyecto final\\pweb-tfinal\\components\\pages\\share\\estadocompartido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|solutionrelative:components\\pages\\share\\estadocompartido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|c:\\web\\programacion-web-itla\\proyecto final\\pweb-tfinal\\wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{48286CFD-3445-40FE-9753-600F460C3190}|P.Final.csproj|solutionrelative:wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,53 +27,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AcercaDe.razor",
-              "DocumentMoniker": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Pages\\ModuloAgentes\\AcercaDe.razor",
-              "RelativeDocumentMoniker": "Components\\Pages\\ModuloAgentes\\AcercaDe.razor",
-              "ToolTip": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Pages\\ModuloAgentes\\AcercaDe.razor",
-              "RelativeToolTip": "Components\\Pages\\ModuloAgentes\\AcercaDe.razor",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAAC0AAAATAAAAAAAAAA==",
+              "Title": "MapaAgente.razor",
+              "DocumentMoniker": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Pages\\ModuloAgentes\\MapaAgente.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\ModuloAgentes\\MapaAgente.razor",
+              "ToolTip": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Pages\\ModuloAgentes\\MapaAgente.razor",
+              "RelativeToolTip": "Components\\Pages\\ModuloAgentes\\MapaAgente.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-10T21:45:25.874Z",
+              "WhenOpened": "2024-12-10T23:14:54.986Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "AsgLogin.razor",
-              "DocumentMoniker": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Propios\\AsgLogin.razor",
-              "RelativeDocumentMoniker": "Components\\Propios\\AsgLogin.razor",
-              "ToolTip": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Propios\\AsgLogin.razor",
-              "RelativeToolTip": "Components\\Propios\\AsgLogin.razor",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAUwEEAAAAkAAAAAAAAAA==",
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "Components\\Layout\\MainLayout.razor",
+              "ToolTip": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "Components\\Layout\\MainLayout.razor",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB0AAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-10T21:39:19.781Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "EstadoCompartido.cs",
-              "DocumentMoniker": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Pages\\Share\\EstadoCompartido.cs",
-              "RelativeDocumentMoniker": "Components\\Pages\\Share\\EstadoCompartido.cs",
-              "ToolTip": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Pages\\Share\\EstadoCompartido.cs",
-              "RelativeToolTip": "Components\\Pages\\Share\\EstadoCompartido.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T21:28:54.909Z",
+              "WhenOpened": "2024-12-10T23:12:04.35Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ListadoMultas.razor",
-              "DocumentMoniker": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Pages\\ModuloAgentes\\ListadoMultas.razor",
-              "RelativeDocumentMoniker": "Components\\Pages\\ModuloAgentes\\ListadoMultas.razor",
-              "ToolTip": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\Components\\Pages\\ModuloAgentes\\ListadoMultas.razor",
-              "RelativeToolTip": "Components\\Pages\\ModuloAgentes\\ListadoMultas.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAANsAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-10T21:28:22.985Z",
+              "Title": "app.css",
+              "DocumentMoniker": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\wwwroot\\app.css",
+              "RelativeDocumentMoniker": "wwwroot\\app.css",
+              "ToolTip": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\wwwroot\\app.css",
+              "RelativeToolTip": "wwwroot\\app.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-12-10T22:56:18.56Z",
               "EditorCaption": ""
             }
           ]
