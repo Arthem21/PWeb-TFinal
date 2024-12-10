@@ -1,9 +1,7 @@
 @page "/ListadoMultas"
 @inject NavigationManager Navigation
-@rendermode InteractiveServer
 @inject Contexto ctx
 @using Microsoft.EntityFrameworkCore
-@using Microsoft.AspNetCore.Components.Forms
 @inject IJSRuntime js
 @inject EstadoCompartido Estado
 
@@ -147,11 +145,6 @@ else if (modo == Modo.Editar)
         </div>
     </div>
 
-
-
-
-
-
 @code {
     enum Modo
     {
@@ -201,9 +194,6 @@ else if (modo == Modo.Editar)
         multa = new Multa();
         modo = Modo.Lista;
 
-
-
-
     }
 
     protected async Task Borrar(Multa x)
@@ -252,11 +242,7 @@ else if (modo == Modo.Editar)
 }
 
 <style>
-        input[readonly].classname{
-      background-color:transparent;
-      border: 0;
-      font-size: 1em;
-    }
+       
 
     .pagina-container{
         width:100%;

@@ -386,6 +386,6 @@ C:\web\Programacion-web-itla\Proyecto final\PWeb-TFinal\obj\Debug\net9.0\compres
 C:\web\Programacion-web-itla\Proyecto final\PWeb-TFinal\obj\Debug\net9.0\compressed\t3vzxjd0z5-5rkqwfey0g.gz
 C:\web\Programacion-web-itla\Proyecto final\PWeb-TFinal\obj\Debug\net9.0\compressed\id2550v1an-hz47i1tfz5.gz
 C:\web\Programacion-web-itla\Proyecto final\PWeb-TFinal\obj\Debug\net9.0\compressed\ex5sbhnjp0-2bhyhyet7a.gz
-C:\web\Programacion-web-itla\Proyecto final\PWeb-TFinal\obj\Debug\net9.0\compressed\7xjm7f4hbm-216p2iw17q.gz
-C:\web\Programacion-web-itla\Proyecto final\PWeb-TFinal\obj\Debug\net9.0\compressed\bjgmgkooiw-ls4t5im2o1.gz
-C:\web\Programacion-web-itla\Proyecto final\PWeb-TFinal\obj\Debug\net9.0\compressed\txse9s9cy9-ls4t5im2o1.gz
+C:\web\Programacion-web-itla\Proyecto final\PWeb-TFinal\obj\Debug\net9.0\compressed\7xjm7f4hbm-wp17rjm2fg.gz
+C:\web\Programacion-web-itla\Proyecto final\PWeb-TFinal\obj\Debug\net9.0\compressed\bjgmgkooiw-l43mt4rjsc.gz
+C:\web\Programacion-web-itla\Proyecto final\PWeb-TFinal\obj\Debug\net9.0\compressed\txse9s9cy9-l43mt4rjsc.gz
