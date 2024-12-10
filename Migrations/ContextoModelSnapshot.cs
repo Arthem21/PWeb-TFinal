@@ -82,7 +82,7 @@ namespace P.Final.Migrations
 
                     b.HasIndex("ConceptoId");
 
-                    b.ToTable("newUsuario");
+                    b.ToTable("multas");
                 });
 
             modelBuilder.Entity("Usuario", b =>

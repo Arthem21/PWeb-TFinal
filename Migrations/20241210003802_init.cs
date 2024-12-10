@@ -44,7 +44,7 @@ namespace P.Final.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "newUsuario",
+                name: "multas",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -63,28 +63,28 @@ namespace P.Final.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_newUsuario", x => x.Id);
+                    table.PrimaryKey("PK_multas", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_newUsuario_Conceptos_ConceptoId",
+                        name: "FK_multas_Conceptos_ConceptoId",
                         column: x => x.ConceptoId,
                         principalTable: "Conceptos",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_newUsuario_UsuarioDb_AgenteId",
+                        name: "FK_multas_UsuarioDb_AgenteId",
                         column: x => x.AgenteId,
                         principalTable: "UsuarioDb",
                         principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_newUsuario_AgenteId",
-                table: "newUsuario",
+                name: "IX_multas_AgenteId",
+                table: "multas",
                 column: "AgenteId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_newUsuario_ConceptoId",
-                table: "newUsuario",
+                name: "IX_multas_ConceptoId",
+                table: "multas",
                 column: "ConceptoId");
         }
 
@@ -92,7 +92,7 @@ namespace P.Final.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "newUsuario");
+                name: "multas");
 
             migrationBuilder.DropTable(
                 name: "Conceptos");

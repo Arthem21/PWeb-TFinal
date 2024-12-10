@@ -26,24 +26,6 @@
         </div>
     </div>
 
-    <div class="card-box" @onclick="MapMultas">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Mapa Multas</h5>
-                <i class="fa-solid fa-map"></i>
-            </div>
-        </div>
-    </div>
-
-    <div class="card-box" @onclick="GestionAgentes">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Agentes</h5>
-                <i class="fa-solid fa-user"></i>
-            </div>
-        </div>
-    </div>
-
 </div>
 
 @code {
@@ -55,19 +37,8 @@
 
     private void ConceptoDeMulta()
     {
-        nav.NavigateTo("ConceptoDeMulta");
+        nav.NavigateTo("ListadoConceptos");
     }
-
-    private void MapMultas()
-    {
-        nav.NavigateTo("mapaFecha");
-    }
-
-    private void GestionAgentes()
-    {
-        nav.NavigateTo("ListadoAgentes");
-    }
-
 
 
     private void Salir()

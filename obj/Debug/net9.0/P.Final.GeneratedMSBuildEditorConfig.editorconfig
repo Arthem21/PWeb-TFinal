@@ -32,12 +32,12 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Pages/Administrador/ConceptoDeMulta.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZG1pbmlzdHJhZG9yXENvbmNlcHRvRGVNdWx0YS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Pages/Administrador/ListadoCentrales.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZG1pbmlzdHJhZG9yXExpc3RhZG9DZW50cmFsZXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Pages/Administrador/ListadoConceptos.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZG1pbmlzdHJhZG9yXExpc3RhZG9Db25jZXB0b3MucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Pages/Administrador/ModuloAdministrador.razor]
@@ -56,14 +56,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Pages/ListadoConceptos.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xMaXN0YWRvQ29uY2VwdG9zLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Pages/Moduloagentes.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNb2R1bG9hZ2VudGVzLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Pages/ModuloAgentes/AcercaDe.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNb2R1bG9BZ2VudGVzXEFjZXJjYURlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
@@ -78,6 +70,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Pages/ModuloAgentes/MapaAgente.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNb2R1bG9BZ2VudGVzXE1hcGFBZ2VudGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Pages/ModuloAgentes/Moduloagentes.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNb2R1bG9BZ2VudGVzXE1vZHVsb2FnZW50ZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Pages/OficinaCentral/GestionarMultas.razor]
@@ -100,20 +96,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xPZmljaW5hQ2VudHJhbFxSZXBvcnRlSW5ncmVzb3MucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Pages/RegistrarMultas.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZWdpc3RyYXJNdWx0YXMucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Pages/Registro.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZWdpc3Ryby5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Pages/Weather.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xXZWF0aGVyLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Propios/Administrador/AsgConceptoDeMulta.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9waW9zXEFkbWluaXN0cmFkb3JcQXNnQ29uY2VwdG9EZU11bHRhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Propios/Administrador/Asgmoduloadministrador.razor]
@@ -130,10 +118,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Propios/AsgMap.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9waW9zXEFzZ01hcC5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Propios/AsgRegistrarMulta.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9waW9zXEFzZ1JlZ2lzdHJhck11bHRhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Propios/AsgRegistro.razor]

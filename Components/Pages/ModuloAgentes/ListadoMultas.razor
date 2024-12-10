@@ -43,7 +43,7 @@
                         }
                     </td>
                     <td>@agente</td>
-                    <td>@multa.Concepto</td>
+                    <td>@multa.Concepto?.Nombre</td>
                     <td>@multa.Estado</td>
                     <td>@multa.Fecha</td>
                     <td>@multa.Cedula</td>
@@ -108,6 +108,19 @@ else if (modo == Modo.Editar)
            
         </div>
 
+        <div class="col">
+            <label for="Concepto" class="form-label">Concepto</label>
+            <InputSelect id="Concepto" class="form-control" @bind-Value="@multa.Concepto">
+                <option value="">Seleccione un concepto</option>
+                @foreach (var concepto in conceptos)
+                {
+                    <option value="@concepto.Id">@concepto.Nombre</option>
+                }
+            </InputSelect>
+        </div>
+
+
+
         <div class="row mb-3">
             <div class="col">
                 <label for="descripcion" class="form-label">Descripcion</label>
@@ -120,8 +133,6 @@ else if (modo == Modo.Editar)
         </div>
     </EditForm>
 }
-
-
 
 @code {
     enum Modo
@@ -140,7 +151,6 @@ else if (modo == Modo.Editar)
 
     public string agente { get; set; } = string.Empty;
 
-    
 
     protected async Task Guardar()
     {
@@ -155,6 +165,7 @@ else if (modo == Modo.Editar)
         }
 
         await ctx.SaveChangesAsync();
+        multas = await ctx.multas.Include(m => m.Concepto).ToListAsync();
         StateHasChanged();
 
         multa = new Multa();
@@ -179,18 +190,24 @@ else if (modo == Modo.Editar)
         modo = Modo.Editar;
     }
 
+    List<Concepto> conceptos = new List<Concepto>();
+
     protected override async Task OnAfterRenderAsync(bool render)
     {
         if (render)
         {
+            
             if (multa.Agente != null)
             {
                 agente = multa.Agente.Nombre;
             }
             Administracion.Conceptos = await ctx.Conceptos.ToListAsync();
             Agente.multas = await ctx.multas.ToListAsync();
-            multas = await ctx.multas.ToListAsync();
+            conceptos = await ctx.Conceptos.ToListAsync();
+            // multas = await ctx.multas.ToListAsync();
+            multas = await ctx.multas.Include(m => m.Concepto).ToListAsync();
             await ctx.SaveChangesAsync();
+
         }
         StateHasChanged();
     }

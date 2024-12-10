@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace P.Final.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20241208151606_sec")]
-    partial class sec
+    [Migration("20241210003802_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -85,7 +85,7 @@ namespace P.Final.Migrations
 
                     b.HasIndex("ConceptoId");
 
-                    b.ToTable("newUsuario");
+                    b.ToTable("multas");
                 });
 
             modelBuilder.Entity("Usuario", b =>

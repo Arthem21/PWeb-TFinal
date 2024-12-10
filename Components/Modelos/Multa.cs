@@ -14,6 +14,7 @@ public class Multa
     public string Nombre { get; set; } = string.Empty;
     public double Costes { get; set; } = 0;
     public Agente? Agente { get; set; }
+    
     public Concepto Concepto { get; set; } = new Concepto();
     public DateTime Fecha { get; set; } = DateTime.Now;
     public string? Descripcion { get; set; }
