@@ -5,6 +5,7 @@
 @using Microsoft.EntityFrameworkCore
 @using Microsoft.AspNetCore.Components.Forms
 @inject IJSRuntime js
+@inject EstadoCompartido Estado
 
 <PageTitle>Mantenimiento de Multas</PageTitle>
 
@@ -115,17 +116,17 @@ else if (modo == Modo.Editar)
                         <label for="conceptoId" class="input-group-text">Concepto</label>
                     </div>
                 </div>
-                    <select id="conceptoId" class="custom-select" @onchange="ActualizarPrecio">
-                        <option selected>Seleccione un concepto</option>
-                         @foreach (var concepto in conceptos)
-                         {
-                            <option value="@concepto.Id">@concepto.Nombre</option>
+                <select id="conceptoId" class="custom-select" @onchange="ActualizarPrecio">
+                    <option selected>Seleccione un concepto</option>
+                    @foreach (var concepto in conceptos)
+                    {
+                        <option value="@concepto.Id">@concepto.Nombre</option>
 
-                         }
-                    </select>
+                    }
+                </select>
             </div>
         </div>
-        
+
 
         <div class="row mb-3">
             <div class="col">
@@ -186,14 +187,14 @@ else if (modo == Modo.Editar)
         await ctx.SaveChangesAsync();
         multas = await ctx.multas.Include(m => m.Concepto).ToListAsync();
         await js.InvokeVoidAsync("alert", "Datos Guardados con exito");
-        
+
         StateHasChanged();
         multa = new Multa();
         modo = Modo.Lista;
-        
-        
 
-        
+
+
+
     }
 
     protected async Task Borrar(Multa x)
@@ -220,6 +221,7 @@ else if (modo == Modo.Editar)
 
     protected override async Task OnAfterRenderAsync(bool render)
     {
+        
         if (render)
         {
             

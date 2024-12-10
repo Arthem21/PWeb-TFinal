@@ -2,7 +2,7 @@
   "Files": [
     {
       "Id": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\P.Final.bundle.scp.css",
-      "PackagePath": "staticwebassets\\P.Final.b1h8fqkejm.bundle.scp.css"
+      "PackagePath": "staticwebassets\\P.Final.gvi6vl5ape.bundle.scp.css"
     },
     {
       "Id": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\wwwroot\\app.css",
@@ -11,6 +11,10 @@
     {
       "Id": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\wwwroot\\fotos\\dari.jpg",
+      "PackagePath": "staticwebassets\\fotos\\dari.jpg"
     },
     {
       "Id": "C:\\web\\Programacion-web-itla\\Proyecto final\\PWeb-TFinal\\wwwroot\\fotos\\jose.jpg",

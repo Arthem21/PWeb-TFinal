@@ -112,8 +112,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9waW9zXEFkbWluaXN0cmFkb3JcQXNndXN1YXJpb3NPZmljaW5hY2VudGFsLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Propios/AsgAgentesLogin.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9waW9zXEFzZ0FnZW50ZXNMb2dpbi5yYXpvcg==
+[C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Propios/AsgLogin.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9waW9zXEFzZ0xvZ2luLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/web/Programacion-web-itla/Proyecto final/PWeb-TFinal/Components/Propios/AsgMap.razor]

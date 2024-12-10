@@ -5,8 +5,10 @@
     [Parameter]
     public List<Multa> ListaMultas { get; set; } = new List<Multa>();
 
-    protected override async Task OnAfterRenderAsync(bool firstRender) {
-        if (firstRender) {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
             await jsx.InvokeVoidAsync("cargarMapa");
             var paramex = Newtonsoft.Json.JsonConvert.SerializeObject(ListaMultas);
             await jsx.InvokeVoidAsync("cargarMarcadores", paramex);
@@ -14,7 +16,7 @@
     }
 }
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
 <style>
@@ -55,7 +57,7 @@
         function onMapClick(e) {
             var popup = L.popup()
                 .setLatLng(e.latlng)
-                .setContent(`You clicked the map at ${e.latlng.toString()}`)
+                .setContent(You clicked the map at ${e.latlng.toString()})
                 .openOn(map);
         }
 
@@ -64,6 +66,14 @@
 
     function cargarMarcadores(MultaJson) {
         var Multa = JSON.parse(MultaJson);
+
+        if (map._layers) {
+            for (var layer in map._layers) {
+                if (map._layers[layer]._icon) {
+                    map.removeLayer(map._layers[layer]);
+                }
+            }
+        }
 
         Multa.forEach(multa => {
             L.marker([multa.Latitud, multa.Longitud]).addTo(map).bindPopup(
@@ -75,4 +85,6 @@
                 <br> <b>Longitud:</b> ${multa.Longitud} `);
         });
     }
+
+
 </script>
