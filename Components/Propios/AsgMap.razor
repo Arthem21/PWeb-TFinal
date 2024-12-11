@@ -65,6 +65,14 @@
     function cargarMarcadores(MultaJson) {
         var Multa = JSON.parse(MultaJson);
 
+        if (map._layers) {
+            for (var layer in map._layers) {
+                if (map._layers[layer]._icon) {
+                    map.removeLayer(map._layers[layer]);
+                }
+            }
+        }
+
         Multa.forEach(multa => {
             L.marker([multa.Latitud, multa.Longitud]).addTo(map).bindPopup(
                 ` <b>Cédula:</b> ${multa.Cedula}
@@ -75,4 +83,6 @@
                 <br> <b>Longitud:</b> ${multa.Longitud} `);
         });
     }
+
+    
 </script>

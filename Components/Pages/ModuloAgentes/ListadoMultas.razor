@@ -41,7 +41,7 @@
                     <td>
                         @if (!string.IsNullOrEmpty(multa.Foto))
                         {
-                            <img class="" src="@multa.Foto" alt="@multa.Nombre" width="100px" height="200px">
+                            <img class="" src="@multa.Foto" alt="@multa.Nombre" width="100px" height="100px">
                         }
                     </td>
                     <td>@agente</td>
@@ -74,7 +74,7 @@ else if (modo == Modo.Editar)
         <ValidationSummary />
         <div class="row mb-3">
             <div class="col">
-                <label for="Cedula" class="form-label">Cédula</label>
+                <label for="Cedula" class="form-label">Cï¿½dula</label>
                 <InputText id="Cedula" class="form-control" @bind-Value="@multa.Cedula" />
             </div>
             <div class="col">
