@@ -2,6 +2,7 @@
 @inject Contexto Dc
 @inject IJSRuntime Jsx
 @inject NavigationManager nav
+@inject EstadoCompartido Estado
 
 
 
@@ -58,12 +59,15 @@
             {
                 case "Agente":
                     nav.NavigateTo("/moduloagentes");
+                    CambiarAgente();
                     break;
                 case "Administrador":
                     nav.NavigateTo("/moduloadministrador");
+                    CambiarAdmin();
                     break;
                 case "Central":
                     nav.NavigateTo("/modulocentral");
+                    Cambiarcentral();
                     break;
                 default:
                     await Jsx.InvokeVoidAsync("alert", "Tipo de usuario desconocido.");
@@ -78,5 +82,19 @@
         }
     }
 
+    private void CambiarAgente()
+    {
+        Estado.link = "moduloagentes";
+    }
+
+    private void Cambiarcentral()
+    {
+        Estado.link = "modulocentral";
+    }
+
+    private void CambiarAdmin()
+    {
+        Estado.link = "moduloadministrador";
+    }
    
 }

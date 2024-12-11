@@ -10,6 +10,8 @@ builder.Services.AddRazorComponents()
 builder.Services.AddDbContext<Contexto>(options=>
 options.UseSqlite(builder.Configuration.GetConnectionString("Default")));
 
+builder.Services.AddScoped<EstadoCompartido>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

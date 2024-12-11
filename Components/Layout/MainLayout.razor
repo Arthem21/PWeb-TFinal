@@ -1,4 +1,5 @@
 ﻿@inherits LayoutComponentBase
+@inject EstadoCompartido Estado
 
 @* <div class="page">
     <div class="sidebar">
@@ -26,15 +27,8 @@
     <nav>
         <h3><a class="h3" href="/">DIGESETT</a></h3>
         <ul>
-            
-            
-            <li><a class="link" href="registro">registro</a></li>
-            
-            <li><a class="link" href="moduloagentes">agentes</a></li>
 
-            <li><a href="modulocentral">Central</a></li>
-
-            <li><a href="moduloadministrador">Administrador</a></li>
+            <li><a href="@Estado.link">Volver</a></li>
         </ul>
     </nav>
 </header>

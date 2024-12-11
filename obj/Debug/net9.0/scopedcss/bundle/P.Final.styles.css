@@ -107,7 +107,7 @@ header nav[b-sisne5liw8] {
     padding-right: 5px;
     font-weight: bold;
     
-    background-color: #fff;
+    background-color: #42a32d;
 }
 
     header nav ul li[b-sisne5liw8] {
@@ -115,16 +115,16 @@ header nav[b-sisne5liw8] {
     }
 
 header .h3[b-sisne5liw8] {
-    color: #000;
+    color: #ffffff;
     text-decoration: none;
 }
 
 ul li a[b-sisne5liw8] {
     text-decoration: none;
     color: #000;
-    padding: 20px;
     margin: 5px;
-    background-color: #fff;
+    background-color: #42a32d;
+    border: none;
 }
 
 .body[b-sisne5liw8] {
